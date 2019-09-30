@@ -1,0 +1,1078 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" sizes="16x16 32x32" href="images/icon_logo.ico">
+    <title>서기정's portfolio</title>
+    <link href="common.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    
+    <!--포폴 레이아웃 참조사이트 : 
+http://leejanerun.com/2018/01/21/%EB%91%90%EB%B2%88%EC%A7%B8-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%ED%8E%98%EC%9D%B4%EC%A7%80-leejanerun/
+
+http://giihan.com/pf_2017/
+
+http://dickymicky.com/
+
+http://dongsooworld.dothome.co.kr/
+-->
+    
+    <style>
+        /* ---- stats.js ---- */
+                .count-particles{
+                    position: absolute;
+                    top: 48px;
+                    left: 0;
+                    width: 80px;
+                    font-size: 8em;
+                    text-align: left;
+                    text-indent: 4px;
+                    line-height: 14px;
+                    padding-bottom: 2px;
+                    font-weight: bold;
+                    display: none;
+                }
+                .js-count-particles{font-size: 1.1em;}
+                #stats,.count-particles{
+                    -webkit-user-select: none;
+                    margin-top: 5px;
+                    margin-left: 5px;
+                }
+                #stats{border-radius: 3px 3px 0 0; overflow: hidden;}
+                .count-particles{border-radius: 0 0 3px 3px;}
+                /* ---- particles.js container ---- */
+                #particles-js{
+                    width: 100%;
+                    height: 100%;
+                    background-image: url('');
+                    background-size: cover;
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                }
+        
+        .main_box ul {transform-origin: 0 50%; transform: scaleX(0); transition: .5s;}
+        
+        #main_1 {background-color: #87CEFA;}
+        #main_1 #ground {background-color: #f4dcb6; width: 100%; height: 27%; position: absolute; bottom: 0; opacity: .9;}
+        #main_1 svg#character {position: absolute; bottom: 10%; right: 10%;}
+        #main_1 svg#cloud {position: absolute; top: 10%; left: 10%;}
+        #main_1 .ground {position: absolute; width: 25%; height: 120%; background-color: #f4dcb6; bottom: 0; border-radius: 10vw;}
+        #main_1 .ground:nth-child(1) {left: 0;}
+        #main_1 .ground:nth-child(2) {left: 25%;}
+        #main_1 .ground:nth-child(3) {left: 50%;}
+        #main_1 .ground:nth-child(4) {left: 75%;}
+        
+        #main_1 #text {position: fixed; top: 40%; left: 20%;}
+        #main_1 .moving_text {font-size: 3rem; color: #000; display: inline-block; margin-right: -2%;}
+        #main_1 .typewrite, #main_1 .typewrite+div {font-size: 2rem; color: #555; display: inline-block;}
+        
+        .main_box >#title {height: 5vh; font-size: 2rem; text-align: center; line-height: 5vh;}
+        .main_box .title_line {position: absolute; width: 2px; height: 2px; background-color: #000;}
+        .main_box #title_top {width: 90%; top: 5%; left: 5%;}
+        .main_box #title_bottom {width: 90%; bottom: 5%; left: 5%;}
+        .main_box #title_left {height: 90%; top: 5%; left: 5%;}
+        .main_box #title_right {height: 90%; top: 5%; right: 5%;}
+        
+        #main_2 {background-color: #f5f5f5;}
+        #main_2 #sub_title {font-size: .9rem; margin-left: 44%; color: #555; text-align: left; line-height: 2;}
+        #main_2 #ul_wrap {position: relative; font-size: 2rem;}
+        #main_2 #ul_wrap ul {position: relative; z-index: 1;}
+        #main_2 #ul_wrap li {height: 15vh; margin-left: 44%; cursor: pointer; width: 20vw;}
+        #main_2 #ul_wrap li div {display: inline-block; vertical-align: middle;}
+        #main_2 ul .img {background-position: center; background-size: contain; background-repeat: no-repeat; width: 80px; height: 100%; margin-right: 10px;}
+        #main_2 ul li:nth-child(1) .img {background-image: url(images/illustrator.png);}
+        #main_2 ul li:nth-child(2) .img {background-image: url(images/photoshop.png);}
+        #main_2 ul li:nth-child(3) .img {background-image: url(images/photoshop.png);}
+        #main_2 ul li:nth-child(4) .img {background-image: url(images/bracket.png);}
+        #main_2 ul li:nth-child(5) .img {background-image: url(images/cafe24.png);}
+        #main_2 ul li:nth-child(6) .img {background-image: url(images/uidesign.png);}
+        #main_2 #ul_wrap .ul_text {position: relative;} 
+        #main_2 #ul_wrap #text_line {position: absolute; width: 1.5vw; height: 2px; background-color: #000; bottom: 0; left: 0; transition: .7s;}
+        #main_2 #ul_wrap li:hover #text_line {width: 100%;}
+        #main_2 .ul_item {position: absolute; top: 8%; left: 6%; bottom: 8%; right: 6%; background-color: #fff; visibility: hidden; opacity: 0; transition: 1s; overflow: hidden;}
+        #main_2 #ul_line {position: absolute; top: -10%; right: -5px; width: 5px; height: 110vh; background-color: #000;}
+        #main_2 #ul_triangle {position: absolute; right: -75px; top: 50%; width: 0; height: 0; border: 50px solid #000; border-left-color: transparent; border-bottom-color: transparent; transform: rotate(45deg); transform-origin: 100% 0; cursor: pointer;}
+        
+        #main_2 .item_list {width: 20%; height: 33.33%; box-sizing: border-box; border: 1px solid #ccc; text-align: center; float: left; position: relative; cursor: pointer; left: 0; top: 0;}
+        #main_2 .item_list .split {width: 50%; height: 100%;}
+        #main_2 img {position:absolute; max-width:95%; max-height:95%; width:auto; height:auto; margin:auto; top:0; bottom:0; left:0; right:0;}
+        #main_2 img:hover {border-left: 1px solid #ddd; border-right: 1px solid #ddd; cursor: row-resize;}
+        #main_2 .item_list img+div {font-size: .9rem; background-color: rgba(255,255,255,.7); text-align: left; transition: .5s; opacity: 0; z-index: 1; position: absolute; bottom: 0; line-height: 2; width: 100%; height: 100%; padding: 13% 3%; box-sizing: border-box;}
+        #main_2 .item_list:hover img+div {opacity: 1;}
+        #main_2 .item_list #plus {width: 30px; height: 30px; bottom: 3%; right: 3%; position: absolute; border: 1px solid #555; color: #555; font-size: 2rem; padding: 3px; text-align: center; line-height: 30px; border-radius: 50%; z-index: 2; background-color: #fff; transition: .5s;}
+        #main_2 .item_list #plus:hover {transform: rotate(360deg);}
+        
+        #main_2 #item_list_detail {position: relative; width: 100%; height: 100%; z-index: 4; transform: translateX(100%); opacity: 0; background-color: #fff;}
+        #main_2 #item_list_detail .split {width: 50%; height: 100%; position: absolute;}
+        #main_2 #item_list_detail .split:nth-child(2) {right: 0;}
+        #main_2 #item_list_detail img {opacity: 0; cursor: pointer;}
+        #main_2 #ul_wrapping {width: 90%; height: 88.8%; background-color: rgba(255,255,255,.8); z-index: 1; position: absolute; left: 5%; top: 6%; display: none;}
+        
+        #main_2 #item_4 .item_list {width: 33.33%; height: 100%;}
+        #main_2 #item_5 .item_list {width: 100%; height: 100%;}
+        #main_2 #item_6 .item_list {width: 100%; height: 100%;}
+        #main_2 #item_6 #download {bottom: 3%; left: 3%; position: absolute; border: 1px solid #555; color: #555; font-size: .8rem; padding: 3px; text-align: center; line-height: 30px; border-radius: 25px; z-index: 2; background-color: #fff; transition: .5s;}
+        #main_2 #item_6 #download:hover {background-color: #ccc;}
+        
+        #main_3 {background-color: rgba(255,255,255,.8);}
+        #main_3 i:first-child {color: #320064;}
+        #main_3 i {transition: 1s;}
+        #main_3 ul {width: 100%; height: 90%; padding: 5%; box-sizing: border-box;}
+        #main_3 li {width: 33.33%; margin: 2% 0; text-align: center; float: left;}
+        #main_3 li:hover i:first-child {border: 1px solid #320064; color: transparent; border-radius: 50%;}
+        #main_3 li:hover i:last-child {color: #320064;}
+        #main_3 li #title {font-size: 1.5rem;}
+        #main_3 li #text {font-size: .9rem; color: #777;}
+        
+        #main_4 {height: 35vh;}
+        #main_4 #title {background-color: rgba(255,255,255,1); position: relative; z-index: 1; width: 15vw; margin: 0 auto;}
+        #main_4 #mail_wrap {width: 200px; height: 200px; position: relative; background-color: #320064; margin: 3vh auto; border-radius: 10%;}
+        #main_4 #mail_wrap:hover #mail_head {transform: rotateX(180deg); z-index: 1; transition: .5s;}
+        #main_4 #mail_wrap:hover #mail_inner {transform: translateY(-40%); transition: .5s .3s;}
+        #main_4 #mail_wrap #mail_body {width: 0; height: 0; position: absolute; left: 0; top: 0; bottom: 0; right: 0; margin: auto; border-bottom: 35px solid #fff; border-left: 50px solid #fff; border-right: 50px solid #fff; border-top: 35px solid transparent; border-radius: 10px; z-index: 2;}
+        #main_4 #mail_wrap #mail_head {width: 0; height: 3px; position: absolute; left: 0; top: 0; bottom: 0; right: 0; margin: auto; border-top: 35px solid #fff; border-bottom: 35px solid transparent; border-left: 50px solid transparent; border-right: 50px solid transparent; z-index: 3; border-radius: 10px; transform-origin: top;}
+        #main_4 #mail_wrap #mail_inner {width: 50px; height: 60px; position: absolute; left: 0; top: 0; bottom: 0; right: 0; margin: auto; border-radius: 5px; z-index: 1; background-color: #fff; border: 1px solid #000;}
+        #main_4 #mail_wrap #mail_inner .inner_line {width: 70%; height: 1px; background-color: #000; margin-left: 15%; margin-top: 20%;}
+        #main_4 #mail_wrap #mail_text {color: #fff; text-align: center; font-size: 1.2rem; padding-top: 80%;}
+        
+        /* 반응형 설정 시작 */
+        @media only screen and (max-width: 1281px) {
+        }
+        @media only screen and (max-width: 769px) {
+        }
+        @media only screen and (max-width: 541px) {
+        }
+        /* 반응형 설정 끝 */
+    </style>
+    
+</head>
+<body>
+    <div id="navigation">
+        <div id="nav_wrap">
+            <a href="#main_1"><img src="images/icon_logo.png"></a>
+            <div id="nav_toggle">
+                <div class="nav_toggle_line"></div>
+                <div class="nav_toggle_line"></div>
+                <div class="nav_toggle_line"></div>
+            </div>
+            <ul>
+                <li>Skill<div id="nav_li_line"></div></li>
+                <li>Portfolio<div id="nav_li_line"></div></li>
+                <li>Contact<div id="nav_li_line"></div></li>
+            </ul>
+        </div>
+    </div>
+    <style>
+        #navigation {position: fixed; top: 0; left: 0; z-index: 10;}
+        #navigation #nav_wrap {width: 50px; height: 100px; background-color: rgba(255,255,255,.8); padding: 1vw; border-radius: 0 0 20px 20px; overflow: visible;}
+        #navigation img {width: 50px; height: 50px; cursor: pointer;}
+        #navigation #nav_toggle {width: 30px; height: 30px; margin: 0 auto; position: relative; overflow: hidden; cursor: grab;}
+        #navigation #nav_toggle .nav_toggle_line {width: 80%; height: 1px; background-color: #000; position: absolute; left: 10%; transition: .5s; transform-origin: 0 50%;}
+        #navigation #nav_toggle .nav_toggle_line:nth-child(1) {top: 23%;}
+        #navigation #nav_toggle .nav_toggle_line:nth-child(2) {top: 48.5%;}
+        #navigation #nav_toggle .nav_toggle_line:nth-child(3) {top: 75%;}
+        #navigation li {font-size: .9rem; height: 5vh; line-height: 5vh; transform-origin: 50% 0; transform: scaleY(0); transition: .5s .2s; cursor: pointer;}
+        #navigation li #nav_li_line {width: 10px; height: 1px; background-color: #000; margin-top: -10px; transition: .5s;}
+        #navigation li:hover #nav_li_line {width: 130%;}
+    </style>
+    <script>
+        $('#navigation img').click(function() {
+            $("html,body").stop().animate({scrollTop: '0px'}, 800);
+        });
+        $('#navigation li:nth-child(1)').click(function() {
+            $("html,body").stop().animate({scrollTop: $('#main_3').offset().top}, 800);
+        });
+        $('#navigation li:nth-child(2)').click(function() {
+            $("html,body").stop().animate({scrollTop: $('#main_2').offset().top}, 800);
+        });
+        $('#navigation li:nth-child(3)').click(function() {
+            $("html,body").stop().animate({scrollTop: $('#main_4').offset().top}, 800);
+        });
+        var nav_toggle = 0;
+        $('#navigation #nav_toggle').click(function() {
+            if( nav_toggle == 0 ) {
+                $('#navigation #nav_toggle .nav_toggle_line:nth-child(1)').css({'transform':'rotate(45deg)'});
+                $('#navigation #nav_toggle .nav_toggle_line:nth-child(2)').css({'transform':'translateX(-120%)'});
+                $('#navigation #nav_toggle .nav_toggle_line:nth-child(3)').css({'transform':'rotate(-45deg)'});
+                nav_toggle = 1;
+                
+                $('#navigation #nav_wrap').css({'height':'auto'});
+                $('#navigation li').css({'transform':'scaleY(1)'});
+            } else {
+                $('#navigation #nav_toggle .nav_toggle_line').css({
+                    'transform':'rotate(0) translateX(0)'});
+                nav_toggle = 0;
+                
+                $('#navigation #nav_wrap').css({'height':'100px'});
+                $('#navigation li').css({'transform':'scaleY(0)'});
+            }
+        });
+    </script>
+    
+    <div id="main">
+        <div class="main_box" id="main_1">
+            
+            <svg id="cloud" viewBox="0 0 277.58 182.61"><path d="M896,552.51s-50,25.07-68-22.39c0,0-16-34.85,31.33-51.15,0,0-18.67-20.3-2-43,0,0,23.33-30.67,58,0,0,0,1.33-37.35,50-37.33,0,0,28.67-.09,38,41.33,0,0,32-22,45.33,11.67,0,0,60.67-23.13,51.34,66.27,0,0-9.34,58.6-64.67,33.33,0,0-22,32.1-48,.75C987.33,552,936.66,613,896,552.51Z" transform="translate(-824.39 -397.67)" style="fill:#fff;stroke:#5cd3ff;stroke-miterlimit:10;stroke-width:2px"/><circle cx="179.3" cy="111.36" r="3.69" style="fill:#5cd3ff"/><circle cx="228.27" cy="111.36" r="3.69" style="fill:#5cd3ff"/><line x1="175.6" y1="124.33" x2="182.99" y2="124.33" style="fill:none;stroke:#5cd3ff;stroke-miterlimit:10"/><line x1="224.58" y1="123" x2="231.96" y2="123" style="fill:none;stroke:#5cd3ff;stroke-miterlimit:10"/><path d="M1003.69,522S1001,534.67,1027,534.67c0,0,25.66,1.1,25.66-14" transform="translate(-824.39 -397.67)" style="fill:none;stroke:#5cd3ff;stroke-miterlimit:10"/><ellipse cx="168.44" cy="119.67" rx="7.17" ry="2.17" style="fill:#fcf"/><ellipse cx="239.44" cy="119.67" rx="7.17" ry="2.17" style="fill:#fcf"/></svg>
+            <style>
+                svg#cloud {width: 20%; height: 20%; animation: svg_ani_cloud_move 30s infinite;}
+                @keyframes svg_ani_cloud_move {
+                    10% {top: 7%;}
+                    20% {top: 13%;}
+                    30% {top: 7%;}
+                    45% {top: 13%; transform: rotateY(0);}
+                    50% {top: 10%; left: 80%; transform: rotateY(180deg);}
+                    60% {top: 7%;}
+                    70% {top: 13%;}
+                    80% {top: 7%;}
+                    90% {top: 13%; transform: rotateY(180deg);}
+                    100% {top: 10%; left: 10%; transform: rotateY(0);}
+                }
+                /*
+                svg#cloud * {
+                    stroke-dasharray: 1500;
+                    stroke-dashoffset: 1500;
+                    animation: svg_ani_cloud 5s 0s ease-in-out infinite;
+                }
+                @keyframes svg_ani_cloud {
+                    0% {fill: none;}
+                    100% {stroke-dashoffset: 0; fill: auto;}
+                }*/
+            </style>
+            
+            
+            <div id="ground">
+                <div class="ground"></div>
+                <div class="ground"></div>
+                <div class="ground"></div>
+                <div class="ground"></div>
+            </div>
+            
+            <svg viewBox="0 0 241.44 200.88" style="width: 20%; height: 20%;" id="character"><defs><radialGradient id="a" cx="721.63" cy="388.41" r="22.12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset="0.37" stop-color="#fdfdfd"/><stop offset="0.51" stop-color="#f6f6f6"/><stop offset="0.6" stop-color="#ebebeb"/><stop offset="0.68" stop-color="#dadada"/><stop offset="0.75" stop-color="#c4c4c4"/><stop offset="0.8" stop-color="#a8a8a8"/><stop offset="0.86" stop-color="#888"/><stop offset="0.91" stop-color="#626262"/><stop offset="0.95" stop-color="#373737"/><stop offset="0.99" stop-color="#090909"/><stop offset="1"/></radialGradient><radialGradient id="b" cx="71" cy="70" r="69.5" gradientUnits="userSpaceOnUse"><stop offset="0.36" stop-color="#fff"/><stop offset="0.6" stop-color="#fdfdfd"/><stop offset="0.69" stop-color="#f6f6f6"/><stop offset="0.75" stop-color="#ebebeb"/><stop offset="0.8" stop-color="#dadada"/><stop offset="0.84" stop-color="#c4c4c4"/><stop offset="0.88" stop-color="#a8a8a8"/><stop offset="0.91" stop-color="#888"/><stop offset="0.94" stop-color="#626262"/><stop offset="0.97" stop-color="#373737"/><stop offset="1" stop-color="#090909"/><stop offset="1"/></radialGradient></defs><g style="isolation:isolate"><ellipse cx="99.33" cy="106.33" rx="70" ry="69" style="opacity:0.30000000000000004;mix-blend-mode:multiply"/><g style="opacity:0.30000000000000004;mix-blend-mode:multiply"><path d="M713.78,462.47l-13-15.37,5.39-4.47a1.8,1.8,0,0,0,.25-2.5l-5-6.15-6.2,5.74,6.2-5.74L685.5,414.5,678,420.23l-1.47-1.73-27,23,.19.24-7.25,5.51,22.86,26.84a1.88,1.88,0,0,0,2.62.23l4.86-4,12.9,16a3,3,0,0,0,4.18.53c1.75-1.29,4.33-3.24,7.31-5.61L673.5,451.5l23.67,29.67c3-2.36,6.3-5.14,9.61-8.13L683.5,445.5,706.78,473c2.36-2.12,4.69-4.33,6.86-6.57A3,3,0,0,0,713.78,462.47Zm-53.18,6.1,6.15-5.74Z" transform="translate(-515.5 -286.5)"/><line x1="145.1" y1="182.07" x2="151.25" y2="176.33" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0px"/><line x1="179.67" y1="153.22" x2="185.87" y2="147.48" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0px"/><line x1="185.87" y1="147.48" x2="185.87" y2="147.48" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0px"/><line x1="181.67" y1="194.67" x2="181.67" y2="194.67" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0px"/><line x1="181.67" y1="194.67" x2="158" y2="165" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0px"/><line x1="191.28" y1="186.54" x2="191.29" y2="186.54" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0px"/><line x1="168" y1="159" x2="191.28" y2="186.54" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0px"/></g><path d="M641.44,446.25l22.86,26.84a1.88,1.88,0,0,0,2.62.23l38.22-31.69a1.8,1.8,0,0,0,.25-2.5L684.5,413.5" transform="translate(-515.5 -286.5)" style="fill:#f9f4ef;stroke:#000;stroke-miterlimit:10"/><path d="M648.5,440.5l36.18,44.75a3,3,0,0,0,4.18.53c4.7-3.47,15.46-11.72,23.78-20.31a3,3,0,0,0,.14-4l-37.28-44" transform="translate(-515.5 -286.5)" style="fill:#f9f4ef;stroke:#000;stroke-miterlimit:10"/><line x1="144.1" y1="181.07" x2="150.25" y2="175.33" style="fill:none;stroke:#000;stroke-miterlimit:10"/><line x1="178.67" y1="152.22" x2="184.87" y2="146.48" style="fill:none;stroke:#000;stroke-miterlimit:10"/><line x1="180.67" y1="193.67" x2="157" y2="164" style="fill:none;stroke:#000;stroke-miterlimit:10"/><line x1="190.29" y1="185.54" x2="167" y2="158" style="fill:none;stroke:#000;stroke-miterlimit:10"/><path d="M649.25,439.83l14,17.42s8.5,13,19.75,7.5a22,22,0,0,0,7.68-6.5l.05-.06c1.57-2.14,4.33-1,4.1,1.64-.42,5.06.76,12.93,7.67,11.92,0,0,7.25-2,0-16.5,0,0,0,5.25,6.75,1.75L695.5,441.25" transform="translate(-515.5 -286.5)" style="opacity:0.30000000000000004;mix-blend-mode:multiply"/><path d="M646,451.25s26.5-10.75,43-33l-8-11L637.5,441.5Z" transform="translate(-515.5 -286.5)" style="opacity:0.30000000000000004;mix-blend-mode:multiply"/><path d="M690.68,455.15s1.72,2.77,3.82,6.35c1.66,2.83,2,7,6,7,0,0,7.09.66,3-11.67l-7-9.33" transform="translate(-515.5 -286.5)" style="fill:#6e93ae"/><path d="M695.18,462.86s2.16-3.95,9-3.9c0,0,2.25,7-1.46,9C702.71,468,697.36,470.73,695.18,462.86Z" transform="translate(-515.5 -286.5)" style="fill:#fff"/><path d="M690.68,455.15s1.72,2.77,3.82,6.35c1.66,2.83,2,7,6,7,0,0,7.09.66,3-11.67l-7-9.33" transform="translate(-515.5 -286.5)" style="fill:none;stroke:#000;stroke-miterlimit:10"/><path d="M690.68,455.15s1.72,2.77,3.82,6.35c1.66,2.83,2,7,6,7,0,0,7.09.66,3-11.67l-7-9.33" transform="translate(-515.5 -286.5)" style="opacity:0.2;mix-blend-mode:multiply"/><path d="M628.5,435.5s2,10,15,11a16,16,0,0,0,8.52-1.1,2.4,2.4,0,0,1,2.8.53c2.91,3.15,10,10.68,14.68,14.57,0,0,7,3,13,0A46.12,46.12,0,0,0,692,454a4.35,4.35,0,0,1,1.68-1l.06,0a6.64,6.64,0,0,1,6.83,1.93,7.49,7.49,0,0,0,2,1.6,3.86,3.86,0,0,0,5.44-2.82,6.34,6.34,0,0,0,.11-.81,8.26,8.26,0,0,0-2.56-6.4c-1.54-1.5-3.83-3.38-6.11-3.95,0,0-10-3-18,7l10-14-10-11.88a1.6,1.6,0,0,1,0-2.11c1.85-2.05,5.54-7.16,4-14,0,0-2-9-8-10" transform="translate(-515.5 -286.5)" style="fill:#6e93ae"/><path d="M664,447s1,5,9,9l15.52-16.32S685,434,681,431" transform="translate(-515.5 -286.5)" style="fill:#fff"/><path d="M698.19,453.2s-.15-7.3,6.33-7.75c0,0,5.47,4.12,3,9.84,0,0-2.16,2.13-4.33,1.42C703.17,456.71,699.38,453.4,698.19,453.2Z" transform="translate(-515.5 -286.5)" style="fill:#fff"/><path d="M628.5,435.5s2,10,15,11a16,16,0,0,0,8.52-1.1,2.4,2.4,0,0,1,2.8.53c2.91,3.15,10,10.68,14.68,14.57,0,0,7,3,13,0A46.12,46.12,0,0,0,692,454a4.35,4.35,0,0,1,1.68-1l.06,0a6.64,6.64,0,0,1,6.83,1.93,7.49,7.49,0,0,0,2,1.6,3.86,3.86,0,0,0,5.44-2.82,6.34,6.34,0,0,0,.11-.81,8.26,8.26,0,0,0-2.56-6.4c-1.54-1.5-3.83-3.38-6.11-3.95,0,0-10-3-18,7l10-14-10-11.88a1.6,1.6,0,0,1,0-2.11c1.85-2.05,5.54-7.16,4-14,0,0-2-9-8-10" transform="translate(-515.5 -286.5)" style="fill:none;stroke:#000;stroke-miterlimit:10"/><path d="M661.16,452.59s11.48-14.56,25.91-22.33l-3-3.5s-12.61.74-14.61,8.74c0,0-10.31,1.31-11.66,13.65Z" transform="translate(-515.5 -286.5)" style="fill:#fff;stroke:#000;stroke-linecap:round;stroke-linejoin:round"/><path d="M667.33,458.59S678.5,443.5,691.5,435.5c0,0,4.36,4.19,3.68,6.59,0,0-10.68.41-13.68,8.41,0,0-1,7,1,11a13.05,13.05,0,0,1-8,1S669.15,461.68,667.33,458.59Z" transform="translate(-515.5 -286.5)" style="fill:#fff;stroke:#000;stroke-linecap:round;stroke-linejoin:round"/><path d="M634.49,433.15S650,446,668,430c0,0,16.54-11,7.27-29L658,383l-35,31" transform="translate(-515.5 -286.5)" style="fill:#6e93ae;stroke:#000;stroke-linecap:round;stroke-linejoin:round"/><path d="M628.5,437.5l11-8s1-5-8-15l4-7,21-15,9,8s3,5,6,3l9-6S673.56,377,654,374.73L617.5,414.5S610.5,425.5,628.5,437.5Z" transform="translate(-515.5 -286.5)" style="fill:#2c1e11"/><circle cx="136" cy="131" r="4" style="fill:#fff;stroke:#000;stroke-linecap:round;stroke-linejoin:round"/><circle cx="142.63" cy="126.25" r="4" style="fill:#fff;stroke:#000;stroke-linecap:round;stroke-linejoin:round"/><path d="M648.49,413.89l6-4.39a6.93,6.93,0,0,1,0,5A9.84,9.84,0,0,1,648.49,413.89Z" transform="translate(-515.5 -286.5)" style="fill:#37291e;stroke:#000;stroke-linecap:round;stroke-linejoin:round"/><path d="M647.5,410.5s4,7-3,13c0,0-8,8-16,0,0,0-7.58-8.63,1-16,0,0,7-7,15,0l4-3s-4-10,4-15c0,0,9-5,15,3,0,0,6,8-1,14,0,0-7,7-15,1Z" transform="translate(-515.5 -286.5)" style="fill:#fff;stroke:#000;stroke-linecap:round;stroke-linejoin:round"/><circle cx="121" cy="129" r="8" style="fill:#37291d;stroke:#000;stroke-miterlimit:10"/><circle cx="143" cy="112" r="8" style="fill:#37291d;stroke:#000;stroke-miterlimit:10"/><path d="M700.5,408.5s1,13,20,16a41.5,41.5,0,0,0,12,0s20-1,24-23a68.52,68.52,0,0,0,.42-9.48,19.75,19.75,0,0,0-2.84-9.67A22.59,22.59,0,0,0,737.5,371.5s-9-1-13,0c0,0-18,3-23,21C701.5,392.5,699.5,401.5,700.5,408.5Z" transform="translate(-515.5 -286.5)" style="opacity:0.30000000000000004;mix-blend-mode:multiply"/><path d="M698.5,406.5s1,13,20,16a41.5,41.5,0,0,0,12,0s20-1,24-23a68.52,68.52,0,0,0,.42-9.48,19.75,19.75,0,0,0-2.84-9.67A22.59,22.59,0,0,0,735.5,369.5s-9-1-13,0c0,0-18,3-23,21C699.5,390.5,697.5,399.5,698.5,406.5Z" transform="translate(-515.5 -286.5)" style="fill:#fff;stroke:#b58b50;stroke-linecap:round;stroke-linejoin:round"/><path d="M710.53,405.5s13.23,8.63,25.35.57h0s6.21-3,8.17-16h0a18.82,18.82,0,0,1-5.55,18.14S722.06,420,710.53,405.5Z" transform="translate(-515.5 -286.5)" style="fill:#6896b7"/><path d="M708.5,398.5s0,12,13,14c0,0,11,2,16-4,0,0,6.14-2.73,7.15-11a17.37,17.37,0,0,0-2.49-11.32,15.45,15.45,0,0,0-13.66-7.67h-2.86a18.89,18.89,0,0,0-8.5,1.92,15.39,15.39,0,0,0-7.6,8.18,8,8,0,0,0-.51,1.61A45,45,0,0,0,708.5,398.5Z" transform="translate(-515.5 -286.5)" style="fill:none;stroke:#b58b50;stroke-linecap:round;stroke-linejoin:round"/><path d="M743.35,388.43h0C750,403.61,740,410.5,740,410.5c-21.12,11.5-29.47-5-29.47-5s5.21,11,22.4,6.14c0,0,8.08-1.14,11.07-11.14C744,400.5,745.7,394.23,743.35,388.43Z" transform="translate(-515.5 -286.5)" style="opacity:0.30000000000000004;mix-blend-mode:multiply"/><path d="M708.5,398.5s0,12,13,14c0,0,11,2,16-4,0,0,6.14-2.73,7.15-11a17.37,17.37,0,0,0-2.49-11.32,15.45,15.45,0,0,0-13.66-7.67h-2.86a18.89,18.89,0,0,0-8.5,1.92,15.39,15.39,0,0,0-7.6,8.18,8,8,0,0,0-.51,1.61A45,45,0,0,0,708.5,398.5Z" transform="translate(-515.5 -286.5)" style="opacity:0.30000000000000004;mix-blend-mode:multiply;fill:url(#a)"/><circle cx="223" cy="121" r="3" style="fill:#ffef35"/><path d="M741.25,414.44a2.51,2.51,0,0,1-2-1,4.37,4.37,0,0,1-.73-2.36,2.25,2.25,0,0,1,.7-1.94,1.6,1.6,0,0,1,1-.27,4.39,4.39,0,0,1,3.12,1.63,2.5,2.5,0,0,1-.56,3.49A2.41,2.41,0,0,1,741.25,414.44Z" transform="translate(-515.5 -286.5)" style="fill:#fff"/><path d="M740.15,409.34h0a3.85,3.85,0,0,1,2.71,1.43,2,2,0,0,1,.36,1.48,2,2,0,0,1-.8,1.31,2,2,0,0,1-1.17.38,2,2,0,0,1-1.63-.82c-.72-1-.92-3-.14-3.6a1.11,1.11,0,0,1,.67-.18m0-1a2.1,2.1,0,0,0-1.26.37c-1.34,1-1,3.66-.07,5a3,3,0,1,0,4.85-3.53,4.84,4.84,0,0,0-3.52-1.84Z" transform="translate(-515.5 -286.5)" style="fill:#b58b50"/><path d="M742.58,409.26c-1.24,0-2.66-.5-3-1.45-.39-1.21,1.13-3,2.56-3.46a2.27,2.27,0,0,1,.77-.13,2.5,2.5,0,0,1,.77,4.88A3.54,3.54,0,0,1,742.58,409.26Z" transform="translate(-515.5 -286.5)" style="fill:#fff"/><path d="M742.94,404.72h0a2,2,0,0,1,.62,3.91,3.23,3.23,0,0,1-1,.13c-1.2,0-2.29-.49-2.49-1.11-.3-.92,1-2.44,2.23-2.83a2.17,2.17,0,0,1,.62-.1m0-1a3,3,0,0,0-.93.15c-1.57.51-3.39,2.51-2.88,4.09.39,1.2,2,1.8,3.45,1.8a4.42,4.42,0,0,0,1.29-.18,3,3,0,0,0-.93-5.86Z" transform="translate(-515.5 -286.5)" style="fill:#b58b50"/><path d="M735.75,414.44a2.41,2.41,0,0,1-1.46-.48,2.5,2.5,0,0,1-.56-3.49,4.39,4.39,0,0,1,3.12-1.63,1.6,1.6,0,0,1,1,.27,2.25,2.25,0,0,1,.7,1.94,4.37,4.37,0,0,1-.73,2.36A2.51,2.51,0,0,1,735.75,414.44Z" transform="translate(-515.5 -286.5)" style="fill:#fff"/><path d="M736.85,409.34h0a1.11,1.11,0,0,1,.67.18c.78.56.58,2.6-.14,3.6a2,2,0,0,1-1.63.82,2,2,0,0,1-1.17-.38,2,2,0,0,1-.8-1.31,2,2,0,0,1,.36-1.48,3.85,3.85,0,0,1,2.71-1.43m0-1a4.84,4.84,0,0,0-3.52,1.84,3,3,0,0,0,4.85,3.53c1-1.34,1.27-4-.07-5a2.1,2.1,0,0,0-1.26-.37Z" transform="translate(-515.5 -286.5)" style="fill:#b58b50"/><path d="M734.42,409.26a3.54,3.54,0,0,1-1.13-.16,2.49,2.49,0,0,1-1.46-1.24,2.5,2.5,0,0,1,2.23-3.64,2.27,2.27,0,0,1,.77.13c1.43.46,2.95,2.25,2.56,3.46C737.08,408.76,735.66,409.26,734.42,409.26Z" transform="translate(-515.5 -286.5)" style="fill:#fff"/><path d="M734.06,404.72h0a2.17,2.17,0,0,1,.62.1c1.18.39,2.53,1.91,2.23,2.83-.2.62-1.29,1.11-2.49,1.11a3.23,3.23,0,0,1-1-.13,2,2,0,0,1,.62-3.91m0-1a3,3,0,0,0-.93,5.86,4.42,4.42,0,0,0,1.29.18c1.44,0,3.06-.6,3.45-1.8.51-1.58-1.31-3.58-2.88-4.09a3,3,0,0,0-.93-.15Z" transform="translate(-515.5 -286.5)" style="fill:#b58b50"/><path d="M738.5,407c-1.26,0-2.5-2-2.5-3.5a2.5,2.5,0,0,1,5,0C741,405,739.76,407,738.5,407Z" transform="translate(-515.5 -286.5)" style="fill:#fff"/><path d="M738.5,401.5a2,2,0,0,1,2,2c0,1.24-1,3-2,3s-2-1.76-2-3a2,2,0,0,1,2-2m0-1a3,3,0,0,0-3,3c0,1.66,1.34,4,3,4s3-2.34,3-4a3,3,0,0,0-3-3Z" transform="translate(-515.5 -286.5)" style="fill:#b58b50"/><path d="M654.94,374.85c7.73-.12,23.42,15.13,23.15,18-2.46,26-16.49,54.05-40,52.51-3.18-.21-5.23-4.52-9.77-7.67-14-9.75-12.17-18.67-12.17-18.67-5.58-10.75-10.91-20.5-15.87-20.5-38.66,0-62.24,22.61-62.24-15.5s31.34-69,70-69S616.84,375.43,654.94,374.85Z" transform="translate(-515.5 -286.5)" style="opacity:0.30000000000000004;mix-blend-mode:multiply"/><ellipse cx="71" cy="70" rx="70" ry="69" style="fill:#f9ce37;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px"/><ellipse cx="71" cy="70" rx="70" ry="69" style="opacity:0.2;mix-blend-mode:multiply;fill:url(#b)"/><path d="M633.22,407.87s-42.64-61.4-103.93-91.14" transform="translate(-515.5 -286.5)" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px"/><path d="M654,343.08S584.54,328,525.24,391.42" transform="translate(-515.5 -286.5)" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px"/><path d="M575.09,424.47s-3.91-76.34,28.85-134.76" transform="translate(-515.5 -286.5)" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px"/></g></svg>
+            <style>
+                svg#character * {
+                    stroke-dasharray: 700;
+                    stroke-dashoffset: 700;
+                    animation: svg_ani_character 5s 0s ease-in-out infinite;
+                }
+                @keyframes svg_ani_character {
+                    0% {fill: none;}
+                    100% {stroke-dashoffset: 0; fill: auto;}
+                }
+            </style>
+            
+            
+			<!-- count particles -->
+			<div class="count-particles">
+			  <span class="js-count-particles"></span>
+			</div>
+
+			<!-- particles.js container -->
+			<div id="particles-js">
+			</div>
+            
+            <div id="text">
+                <div class="moving_text">웹</div>
+                <div class="moving_text">디</div>
+                <div class="moving_text">자</div>
+                <div class="moving_text">이</div>
+                <div class="moving_text">너&nbsp;</div>
+                <div class="moving_text">서</div>
+                <div class="moving_text">기</div>
+                <div class="moving_text">정</div>
+                <br>
+                <div class="moving_text typewrite" data-period="2000" data-type='[ "여기있어요!", "I am here!" ]'>
+                    <!--made by vipul mirajkar thevipulm.appspot.com-->
+                    <span class="wrap"></span>
+                </div>
+                <div>&nbsp;_</div>
+            </div> 
+        </div>
+        
+        
+        <div class="main_box" id="main_3">
+            <div id="title">저는 이런 것들을 할 줄 알아요.</div>
+            <div class="title_line" id="title_top"></div>
+            <div class="title_line" id="title_right"></div>
+            <div class="title_line" id="title_bottom"></div>
+            <div class="title_line" id="title_left"></div>
+            <ul>
+                <li>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="far fa-images fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p id="title">포토샵</p>
+                    <p id="text">이미지 편집, 보정, 합성, 상세페이지 제작</p>
+                </li>
+                <li>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-draw-polygon fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p id="title">일러스트레이터</p>
+                    <p id="text">로고제작, 상품디자인, 캐릭터 제작</p>
+                </li>
+                <li>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-laptop-code fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p id="title">홈페이지 제작</p>
+                    <p id="text">HTML5, CSS3를 이용한 홈페이지 제작</p>
+                </li>
+                <li>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-store fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p id="title">쇼핑몰 관리/편집/상품등록</p>
+                    <p id="text">cafe24 관리 및 메인페이지 편집, 상품세부설정 및 상세페이지 제작 가능</p>
+                </li>
+                <li>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-camera-retro fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p id="title">상품사진 촬영/보정</p>
+                    <p id="text">DLSR 사진 촬영 및 사진 보정 가능</p>
+                </li>
+                <li>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-search-dollar fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p id="title">쇼핑몰 및 오픈마켓 마케팅</p>
+                    <p id="text">아이템발굴, 시장분석, 판매전략 수립 가능</p>
+                </li>
+                <li>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-mobile-alt fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <p id="title">UI/UX</p>
+                    <p id="text">앱디자인 가능</p>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="main_box" id="main_2">
+            <div id="title">제 작품들이에요.
+                <div id="sub_title"></div>
+            </div>
+            <div class="title_line" id="title_top"></div>
+            <div class="title_line" id="title_right"></div>
+            <div class="title_line" id="title_bottom"></div>
+            <div class="title_line" id="title_left"></div>
+            <div id="ul_wrap">
+                <ul>
+                    <li>
+                        <div class="img"></div>
+                        <div class="ul_text">일러스트
+                            <div id="text_line"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="img"></div>
+                        <div class="ul_text">사진 보정
+                            <div id="text_line"></div></div>
+                    </li>
+                    <li>
+                        <div class="img"></div>
+                        <div class="ul_text">상세페이지
+                            <div id="text_line"></div></div>
+                    </li>
+                    <li>
+                        <div class="img"></div>
+                        <div class="ul_text">웹사이트
+                            <div id="text_line"></div></div>
+                    </li>
+                    <li>
+                        <div class="img"></div>
+                        <div class="ul_text">쇼핑몰
+                            <div id="text_line"></div></div>
+                    </li>
+                    <li>
+                        <div class="img"></div>
+                        <div class="ul_text">UI/UX 앱디자인
+                            <div id="text_line"></div></div>
+                    </li>
+                    <div id="ul_line"></div>
+                    <div id="ul_triangle"></div>
+                </ul>
+                <div class="ul_item" id="item_1">
+                    <div class="item_list">
+                        <img src="illust/fan.png">
+                        <div>유형: 수업<br><br>학원에서 처음으로 일러스트를 이용하여 그린 작품입니다. <br>기존의 선풍기 설명서를 보면서 똑같이 그렸습니다.</div>
+                    </div>
+                    <div class="item_list">
+                        <img src="illust/truck.png">
+                        <div>유형: 수업<br><br>펜툴과 그라데이션을 이용한 트럭의 물결이 포인트입니다.<br>로고는 기존의 것을 가져왔습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="illust/phone.png">
+                        <div>유형: 수업<br><br>mesh를 활용한 광원표현이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="illust/memo.png">
+                        <div>유형: 수업<br><br>패턴 제작이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="illust/cup.png">
+                        <div>유형: 수업<br><br>3D revolve와 map art를 활용한 컵이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="illust/cosmetic.png">
+                        <div>유형: 수업<br><br>3D revolve에 광원을 넣은 것이 포인트입니다.<br>브러쉬의 자연스러운 질감을 표현하는 것이 가장 힘들었습니다.</div>
+                    </div>                 
+                    <div class="item_list">
+                        <img src="illust/bottle.png">
+                        <div>유형: 수업<br><br>3D 소주병입니다.<br>3D revolve와 map art가 포인트입니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="illust/bear.png">
+                        <div>유형: 수업<br><br>메모지 일러스트에 쓸 곰돌이입니다.<br>세세하게 넣은 그림자가 포인트입니다.</div>
+                    </div>                    
+                    <!--<div class="item_list">
+                        <img src="illust/ryan.png">
+                        <div>유형: 취미<br><br>카카오프렌즈의 '라이언'입니다.<br>일러스트 연습삼아 그린 것인데, 이후 수업시간에 적극 활용하였습니다.</div>-->                    
+                    <div class="item_list">
+                        <img src="illust/chimaek.png">
+                        <div>유형: 취미<br><br>2018 대구치맥페스티벌 포스터를 그려보았습니다.<br>패턴 브러시를 활용하여 흩날리는 종이와 닭을 표현한 것이 포인트입니다.</div>
+                    </div>                       
+                    <div class="item_list">
+                        <img src="illust/bbibbi.png">
+                        <div>유형: 취미<br><br>아이유 앨범, 삐삐 표지입니다.<br>담벼락의 무늬가 포인트입니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="illust/pubg.jpg">
+                        <div>유형: 취미<br><br>게임, '배틀그라운드'의 대표이미지입니다.<br>총기 디테일이 가장 힘들었습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="illust/harley.png">
+                        <div>유형: 취미<br><br>영화, '수어사이드 스쿼드'의 할리퀸입니다.<br>예쁘게 표현하는 것이 가장 어려웠습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="illust/iron.png">
+                        <div>유형: 취미<br><br>영화, '아이언맨'의 주인공입니다.<br>명도높은 그라데이션을 이용한 금속의 질감표현이 포인트입니다.</div>
+                    </div>                      
+                    <div class="item_list">
+                        <img src="illust/ryan_chicken.png">
+                        <div>유형: 취미<br><br>카카오프렌즈의 '라이언'입니다.<br>배틀그라운드의 치킨에서 아이디어를 따왔습니다. <br>이후 UI/UX 수업시간에 활용하였습니다.</div>
+                    </div>                      
+                    <div class="item_list">
+                        <img src="illust/davy.png">
+                        <div>유형: 취미<br><br>영화, '캐리비안의 해적'의 데비존스입니다.<br>일러스트로 외곽선을 그리고, 포토샵으로 채색하였습니다.<br>일러스트로는 벅찼던 실사묘사가 포인트입니다.</div>
+                    </div>
+                    <div id="item_list_detail">
+                        <img src="illust/fan_ing.jpg">
+                        <img src="illust/truck_ing.jpg">
+                        <img src="illust/phone_ing.jpg">
+                        <img src="illust/memo_ing.jpg">
+                        <img src="illust/cup_ing.jpg">
+                        <img src="illust/cosmetic_ing.jpg">
+                        <img src="illust/bottle_ing.jpg">
+                        <img src="illust/bear_ing.jpg">
+                        <!--<img src="illust/ryan_ing.jpg">-->
+                        <img src="illust/chimaek_ing.jpg">
+                        <img src="illust/bbibbi_ing.jpg">
+                        <img src="illust/pubg_ing.jpg">
+                        <img src="illust/harley_ing.jpg">
+                        <img src="illust/iron_ing.jpg">
+                        <img src="illust/ryan_chicken_ing.jpg">
+                        <img src="illust/davy_ing.jpg">
+                    </div>
+                </div>
+                <div class="ul_item" id="item_2">
+                    <div class="item_list">
+                        <img src="photo_wb/wb1_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하고,<br>smart sharpen으로 글씨를 선명하게 만들었습니다.</div>
+                    </div>
+                    <div class="item_list">
+                        <img src="photo_wb/wb2_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하였습니다.<br>흰색제품(에어팟)을 살리는 것이 힘들었습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="photo_wb/wb3_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하고,<br>smart sharpen으로 나무문양과 고데기의 글씨를 선명하게 만들었습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="photo_wb/wb4_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하였습니다.<br>제품의 그림자는 브러쉬로 다듬었습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="photo_wb/wb5_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하고,<br>smart sharpen으로 금속부분을 선명하게 만들었습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="photo_wb/wb6_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하고,<br>컬러밸런스를 이용하여 색상을 조금 보정하였습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="photo_wb/wb7_2.jpg">
+                        <div>컵이 흰색이라서 level의 화이트밸런스는 살짝만 보정하고,<br>smart sharpen으로 물방울을 선명하게 만들었으며,<br>컵에 묻은 얼룩은 도장툴로 지웠습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="photo_wb/wb8_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하고,<br>smart sharpen으로 글씨를 선명하게 만들었으며,<br>제품에 묻은 손때와 볼펜자국은 도장툴로 지웠습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="photo_wb/wb9_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하고,<br>smart sharpen으로 제품의 글씨부분을 선명하게 만들었습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="photo_wb/wb10_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하고,<br>smart sharpen으로 캐릭터를 선명하게 만들었습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="photo_wb/wb11_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하였으나,<br>제품이 잘 살지못해, 컬러밸런스와 브러쉬로 어느정도 보완하였습니다.</div>
+                    </div>            
+                    <div class="item_list">
+                        <img src="photo_wb/wb12_2.jpg">
+                        <div>level의 화이트밸런스로 어두운 배경을 보정하고,<br>smart sharpen으로 글씨를 선명하게 만들었습니다.</div>
+                    </div>
+                    <div id="item_list_detail">
+                        <div class="split">
+                            <img src="photo_wb/wb1_1.jpg">
+                            <img src="photo_wb/wb2_1.jpg">
+                            <img src="photo_wb/wb3_1.jpg">
+                            <img src="photo_wb/wb4_1.jpg">
+                            <img src="photo_wb/wb5_1.jpg">
+                            <img src="photo_wb/wb6_1.jpg">
+                            <img src="photo_wb/wb7_1.jpg">
+                            <img src="photo_wb/wb8_1.jpg">
+                            <img src="photo_wb/wb9_1.jpg">
+                            <img src="photo_wb/wb10_1.jpg">
+                            <img src="photo_wb/wb11_1.jpg">
+                            <img src="photo_wb/wb12_1.jpg">
+                        </div>
+                        <div class="split">
+                            <img src="photo_wb/wb1_2.jpg">
+                            <img src="photo_wb/wb2_2.jpg">
+                            <img src="photo_wb/wb3_2.jpg">
+                            <img src="photo_wb/wb4_2.jpg">
+                            <img src="photo_wb/wb5_2.jpg">
+                            <img src="photo_wb/wb6_2.jpg">
+                            <img src="photo_wb/wb7_2.jpg">
+                            <img src="photo_wb/wb8_2.jpg">
+                            <img src="photo_wb/wb9_2.jpg">
+                            <img src="photo_wb/wb10_2.jpg">
+                            <img src="photo_wb/wb11_2.jpg">
+                            <img src="photo_wb/wb12_2.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="ul_item" id="item_3">
+                    <div class="item_list">
+                        <img src="detail/beach.jpg">
+                        <div>비치가디건<br><br>'비치가디건' 글자의 그라데이션이 포인트입니다.</div>
+                    </div>
+                    <div class="item_list">
+                        <img src="detail/pra1.jpg">
+                        <div>고추송송사골<br><br>'맛있게 먹는 방법'의 일러스트가 포인트입니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="detail/pra2.jpg">
+                        <div>9단 책장<br><br>쿠폰이 포인트입니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="detail/pra3.jpg">
+                        <div>때비누<br><br>모델 사진 옆의 시계 일러스트와 아래쪽의 샴푸 일러스트가 포인트입니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="detail/pra4.jpg">
+                        <div>hp 1000원<br><br>버튼의 살짝 둥근 모서리가 포인트입니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="detail/pra5.jpg">
+                        <div>아로마<br><br>포토샵으로 그린 '무상 1년' 메달이 포인트입니다.</div>
+                    </div>                 
+                    <div class="item_list">
+                        <img src="detail/typ1.jpg">
+                        <div>욕실곰팡이<br><br>메인이미지의 오른쪽과 아래쪽에 넣은 그라데이션이 포인트입니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="detail/typ2.jpg">
+                        <div>콩두유<br><br>'내손안의콩두유' 로고를 감싸는 연두색 붓질이 포인트입니다.</div>
+                    </div>                  
+                    <div class="item_list">
+                        <img src="detail/typ3.jpg">
+                        <div>신라 솔가<br><br>각 제품마다 있는 타이틀의 그라데이션 배경이 포인트입니다.</div>
+                    </div>                       
+                    <div class="item_list">
+                        <img src="detail/typ4.jpg">
+                        <div>5월 솔가<br><br>포토샵으로 그린 편지지가 포인트입니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="detail/vita.jpg">
+                        <div>비타민 자작<br><br>별도의 참조레이아웃없이 만든 것이 포인트입니다.</div>
+                    </div>
+                    <div id="item_list_detail">
+                        <img src="detail/beach_ing.jpg">
+                        <img src="detail/pra1_ing.jpg">
+                        <img src="detail/pra2_ing.jpg">
+                        <img src="detail/pra3_ing.jpg">
+                        <img src="detail/pra4_ing.jpg">
+                        <img src="detail/pra5_ing.jpg">
+                        <img src="detail/typ1_ing.jpg">
+                        <img src="detail/typ2_ing.jpg">
+                        <img src="detail/typ3_ing.jpg">
+                        <img src="detail/typ4_ing.jpg">
+                        <img src="detail/vita_ing.jpg">
+                    </div>
+                </div>
+                <div class="ul_item" id="item_4">
+                    <div class="item_list">
+                        <img src="website/web_1.jpg">
+                        <div>더페이스샵 리메이크<br><br>첫 개인프로젝트이며, 1920*1080 사이즈 고정입니다.<br>처음이지만 자바스크립트는 플러그인을 최대한 쓰지 않고 직접, 그리고 많이 넣고자 하였습니다.<br>프로젝트 도중 더페이스샵의 온라인몰이 종료되었는데, 이를 반영하여 구매기능을 없애고 매장찾기로 바꿨습니다.<br>메인이미지, 아이콘을 직접 만든 것이 포인트입니다.<br>일부 서브페이지는 미구현입니다. 각 카테고리마다 하나의 서브페이지만 있습니다.<br>상품들을 데이터베이스화하여 정렬기능을 구현하고 싶었지만 못한 것이 아쉽습니다.</div>
+                    </div>
+                    <div class="item_list">
+                        <img src="website/web_2.jpg">
+                        <div>청춘마루 리메이크<br><br>두번째 개인프로젝트이며, 1920*1080 사이즈 고정입니다.<br>기존의 조금 독특했던 레이아웃을 더욱 부각시킨 것이 특징입니다.<br>모든 서브페이지를 구현하였으며, 제이쿼리와 css 애니메이션을 최대한 사용하여 화려함을 부각시켰습니다.<br>다만, 일부 이미지와 아이콘은 기존의 것을 그대로 사용하였습니다.<br>앞선 프로젝트와는 달리 css/js를 별도의 파일로 분리하는 것은 보기가 힘들어, 최대한 자제하였습니다.</div>
+                    </div>                    
+                    <div class="item_list">
+                        <img src="website/web_3.jpg">
+                        <div>큐브미 리메이크<br><br>세번째 개인프로젝트이며, 적응형+반응형입니다.<br>앞서와는 달리, 화려함보다는 심플하면서도 고급스러운 느낌을 많이 살렸습니다.<br>모든 서브페이지를 구현하였으며, 제이쿼리와 css 애니메이션을 최대한 사용하면서도 절제하여, 난잡한 느낌이 들지 않도록 하였습니다.<br>이미지는 거의 대부분 기존의 것을 사용하였고, sns는 설정된 인스타그램 api를 그대로 사용하였습니다.<br>유일하게 브랜드 페이지는 기존의 것을 쓰지 않고, 제가 만든 기획안을 써넣었습니다. </div>
+                    </div>
+                    <div id="item_list_detail">
+                    </div>
+                </div>
+                <div class="ul_item" id="item_5">
+                    <div class="item_list">
+                        <img src="shop/shop.jpg">
+                        <div>반짝반짝<br><br>수업을 위해 만든 쇼핑몰 사이트입니다.<br>카페24를 이용했고, 연습삼아 서로의 상품을 사거나 팔아보기도 했습니다.<br>기획 단계에서는 무난한 레이아웃이었으나, '반짝반짝'이라는 상호명에 맞춰 기존의 틀을 뜯어고치고 화려하게 바꿨습니다.<br>'Time Sale' 배너는 직접 제작하였으며, '여름반짝세일' 배너, 메인슬라이드의 모델은 구글링으로 찾은 것을 이용하였습니다.<br>상품들의 이미지 출처는 메이블루(http://mayblue.co.kr)입니다.</div>
+                    </div>
+                    <div id="item_list_detail">
+                        <img src="shop/shop_plan.jpg">
+                    </div>
+                </div>
+                <div class="ul_item" id="item_6">
+                    <div class="item_list">
+                        <img src="uiux/balsamiq.jpg">
+                        <div>야먹자<br><br>UI/UX 디자인 수업시간에 했던 앱기획입니다.<br>Balsamiq mockup을 이용하였습니다.<br>조별 프로젝트이며, 전체 페이지수를 사람수만큼 나눠 분할작업하였습니다.<br>기존 앱과 차별점을 두어 기획하고, 디자인하며, 프로토타입을 제작한 후, 사용성조사를 하는 단계로 이루어져 있습니다.<br>다운로드를 클릭하면 프로토타입 pdf버전을 받을 수 있습니다.
+                            <a id="download" href="uiux/B4G2_proto_type.pdf" download>다운로드↓</a>
+                        </div>
+                    </div>
+                    <div id="item_list_detail">
+                        <img src="uiux/map.jpg">
+                    </div>
+                </div>
+                <div id="ul_wrapping"></div>
+            </div>
+        </div>
+        
+        <div class="main_box" id="main_4">
+            <div id="title">연락은 이쪽이에요.</div>
+            <div class="title_line" id="title_top"></div>
+            <div class="title_line" id="title_right"></div>
+            <div class="title_line" id="title_bottom"></div>
+            <div class="title_line" id="title_left"></div>
+            
+            
+            <div id="mail_wrap">
+                <a href="mailto:sgj4958@naver.com">
+                <div id="mail_body"></div>
+                <div id="mail_head"></div>
+                <div id="mail_inner">
+                    <div class="inner_line"></div>
+                    <div class="inner_line"></div>
+                    <div class="inner_line"></div>
+                </div>
+                <div id="mail_text">메일쓰기</div>
+                </a>
+            </div>
+                <div style="text-align: center; margin-top: -1.5vh;">sgj4958@naver.com</div>
+        </div>
+        
+        <div id="footer">
+            &copy; 2019 SEO GI JEONG
+        </div>
+        <style>
+            #footer {width: 100%; height: 10vh; background-color: #000; color: #fff; text-align: center; line-height: 10vh; letter-spacing: .5rem;}
+        </style>
+    </div>
+    
+</body>
+    
+    <script>
+        $(document).ready( function() {
+            //$("#navigation").load("header.html");
+            //$("#footer").load("footer.html");
+            
+            scroll100per();
+        });
+        
+        var TxtType = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+        TxtType.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+            if (this.isDeleting) { delta /= 2; }
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+            setTimeout(function() {
+                that.tick();
+            }, delta);
+        };
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+                new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        
+        var scroll_switch = 0;
+        var move = 0;
+        var max_move;
+        function scroll100per(){
+            var elm = ".main_box";
+            $(elm).each(function (index) {
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    
+                    var moveTop = $(window).scrollTop();
+                    var elmSelecter = $(elm).eq(index);
+                if(scroll_switch == 0) {
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(elmSelecter).next() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).next().offset().top;
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(elmSelecter).prev() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).prev().offset().top;
+                            }catch(e){}
+                        }
+                    }
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveTop + 'px'
+                    }, {duration: 800});
+                }
+                else if(scroll_switch == 1) {
+                    var move_value = $('.ul_item').height()/2;
+                    if (delta < 0) {move += move_value;}
+                    else {move -= move_value;}
+                    
+                    if( $('.ul_item img:hover').length == 1 ) {
+                    max_move = $('.ul_item img:hover').height();
+                    if(move < 0) move = 0;
+                    else if(move > max_move) move = max_move;
+                    
+                    $('.ul_item').stop().animate({scrollTop: move+'px'}, 500);
+                    }
+                }
+                });
+            });
+        }
+        
+        
+        function resolution() {
+            if(innerWidth > 1280) return 0;
+            else if(innerWidth > 768) return 1;
+            else if(innerWidth > 540) return 2;
+            else return 3;
+        }
+        $(window).resize(detect_resize);
+
+        function detect_resize() {
+            switch(resolution()) {
+                case 0:
+                case 1:
+                    break;
+                case 2:
+                case 3:
+                    break;
+            }
+        }
+        
+        $('#main_2 #ul_wrap li').click(function() {
+            switch($(this).index()) {
+                case 0:
+                    $('#main_2 #title #sub_title').html('이미지를 클릭하면 일러스트 작업화면을 볼수 있어요.<br>+버튼을 누르면 크게 볼 수 있어요.');
+                    break;
+                case 1:
+                    $('#main_2 #title #sub_title').html('이미지 클릭하면 보정 전/후를 비교할 수 있어요.<br>+버튼을 누르면 크게 볼 수 있어요.');
+                    break;
+                case 2:
+                    $('#main_2 #title #sub_title').html('클릭하면 상세페이지 작업화면을 볼 수 있어요.<br>+버튼을 누르면 크게 볼 수 있어요.');
+                    break;
+                case 3:
+                    $('#main_2 #title #sub_title').html('클릭하면 웹사이트로 이동해요.<br>+버튼을 누르면 웹사이트 기획과정을 볼 수 있어요.');
+                    break;
+                case 4:
+                    $('#main_2 #title #sub_title').html('클릭하면 쇼핑몰로 이동해요. <br>+버튼을 누르면 쇼핑몰 사업계획서를 볼 수 있어요.');
+                    break;
+                case 5:
+                    $('#main_2 #title #sub_title').html('클릭하면 앱구성을 볼 수 있어요.<br>+버튼을 누르면 UI/UX 기획과정을 볼 수 있어요.');
+                    break;
+            }
+            $('#main_2 #ul_wrap ul').css({
+                'transform':'translateX(-100%)',
+                'transition':'1s'
+            });
+            $('#main_2 .ul_item').css({
+                'visibility':'hidden',
+                'opacity':0
+            });
+            $('#main_2 #item_'+($(this).index()+1)).css({
+                'visibility':'visible',
+                'opacity':1
+            });
+        });
+        
+        $('#main_2 #ul_triangle').click(function() {
+            $('#main_2 #title #sub_title').text('');
+            $('#main_2 #ul_wrap ul').css({
+                'transform':'translateX(0)'
+            });
+            $('#main_2 .ul_item').css({
+                'visibility':'hidden',
+                'opacity':0
+            });
+            $('#main_2 #ul_wrapping').css('display','none');
+            
+            scroll_switch = 0;
+        });
+        
+        $('#main_2 .item_list img+div').click(function() {
+            if( $(this).parent().parent('#item_4').length == 1 ) {
+                switch( $(this).parent('.item_list').index() ) {
+                    case 0:
+                        window.open('https://sgj4958.github.io/project_thefaceshop/');
+                        break;
+                    case 1:
+                        window.open('https://sgj4958.github.io/project_ccmr/');
+                        break;
+                    case 2:
+                        window.open('https://sgj4958.github.io/project_cubeme/');
+                        break;
+                }
+            } 
+            else if( $(this).parent().parent('#item_5').length == 1 ) {
+                window.open('https://sgj4958.cafe24.com/');
+            } else {
+            $('#main_2 #ul_wrapping').css('display','block');
+            $('#main_2 #item_list_detail').css({
+                'transform':'translateX(0)',
+                'transition':'1s',
+                'opacity':1
+            });
+            $('#main_2 #item_list_detail img').css({
+                'opacity':0
+            });
+            $('#main_2 #item_list_detail img:nth-child('+($(this).parent().index()+1)+')').css({
+                'opacity':1,
+                'transition':'1s'
+            });
+            }
+        });
+        $('#main_2 #item_list_detail img').click(function() {
+            $('#main_2 #ul_wrapping').css('display','none');
+            $('#main_2 #item_list_detail').css({
+                'transform':'translateX(100%)',
+                'opacity':0
+            });
+        });
+        
+        $('#main_2 .ul_item .item_list').append('<div id="plus">+<div>');
+        $('#main_2 .ul_item .item_list #plus').click(function() {
+            if( $(this).text() == '+' ) {
+                $(this).parent('.item_list').css({
+                    'width':'100%',
+                    'height':'100%',
+                    'position':'absolute',
+                    'z-index':3,
+                    'background-color':'#fff',
+                    'transition':'.5s',
+                    'border':0
+                });
+                $(this).text('X');
+                $(this).css({
+                    'position':'fixed',
+                    'bottom':'15%',
+                    'right':'8%'
+                });
+                $(this).parent().children('img').css({
+                    'max-height':'none',
+                    'max-width':'100%',
+                    'width':'none',
+                    'height':'none',
+                    'position':'relative'
+                });
+                $('#main_2 .ul_item').css('overflow-y','scroll');
+                $('#main_2 .item_list img+div').css('display','none');
+                
+                if( $(this).parent().parent('#item_4').length == 1 ) {
+                    $(this).siblings('img').attr('src','website/plan_'+($(this).parent('.item_list').index()+1)+'.jpg');
+                }
+                if( $(this).parent().parent('#item_5').length == 1 ) {
+                    $(this).siblings('img').attr('src','shop/shop_plan.jpg');
+                }
+                if( $(this).parent().parent('#item_6').length == 1 ) {
+                    $(this).siblings('img').attr('src','uiux/plan.jpg');
+                }
+                scroll_switch = 1;
+            }
+            else {
+                $(this).parent('.item_list').css({
+                    'width':'20%',
+                    'height':'33.33%',
+                    'position':'relative',
+                    'z-index':0,
+                    'background-color':'transparent',
+                    'border':'1px solid #ccc'
+                });
+                if( $(this).parent().parent('#item_4').length == 1 ) {
+                    $(this).parent('.item_list').css({
+                        'width':'33.33%',
+                        'height':'100%'
+                    });
+                    $(this).siblings('img').attr('src','website/web_'+($(this).parent('.item_list').index()+1)+'.jpg');
+                }
+                if( $(this).parent().parent('#item_5').length == 1 ) {
+                    $(this).parent('.item_list').css({
+                        'width':'100%',
+                        'height':'100%'
+                    });
+                    $(this).siblings('img').attr('src','shop/shop.jpg');
+                }
+                if( $(this).parent().parent('#item_6').length == 1 ) {
+                    $(this).parent('.item_list').css({
+                        'width':'100%',
+                        'height':'100%'
+                    });
+                    $(this).siblings('img').attr('src','uiux/balsamiq.jpg');
+                }
+                $(this).text('+');
+                $(this).css({
+                    'position':'absolute',
+                    'bottom':'3%',
+                    'right':'3%'
+                });
+                $(this).parent().children('img').css({
+                    'max-height':'95%',
+                    'max-width':'95%',
+                    'width':'auto',
+                    'height':'auto',
+                    'position':'absolute'
+                });
+                $('#main_2 .ul_item').css('overflow','hidden');
+                $('#main_2 .item_list img+div').css('display','block');
+            
+                scroll_switch = 0;
+            }
+            
+            $('.ul_item').stop().animate({scrollTop: 0}, 500);
+        });
+        
+         window.addEventListener('scroll', function() {
+             var move_value = pageYOffset/innerHeight *100;
+             $('#main_1 .typewrite, #main_1 .typewrite+div').css({
+                 'opacity':1-move_value,
+                 'transition':'.5s'
+             });
+             $('#main_1 .moving_text:nth-child(1)').css({
+                 'transform':'translateY('+(move_value*0.3)+'vh)'
+             });
+             $('#main_1 .moving_text:nth-child(2)').css({
+                 'transform':'translateY('+(move_value*0.4)+'vh)'
+             });
+             $('#main_1 .moving_text:nth-child(3)').css({
+                 'transform':'translateY('+(move_value*0.2)+'vh)'
+             });
+             $('#main_1 .moving_text:nth-child(4)').css({
+                 'transform':'translateY('+(move_value*0.5)+'vh)'
+             });
+             $('#main_1 .moving_text:nth-child(5)').css({
+                 'transform':'translateY('+(move_value*0.25)+'vh)'
+             });
+             $('#main_1 .moving_text:nth-child(6)').css({
+                 'transform':'translateY('+(move_value*0.45)+'vh)'
+             });
+             $('#main_1 .moving_text:nth-child(7)').css({
+                 'transform':'translateY('+(move_value*0.07)+'vh)'
+             });
+             $('#main_1 .moving_text:nth-child(8)').css({
+                 'transform':'translateY('+(move_value*0.1)+'vh)'
+             });
+             
+             if(pageYOffset == $('#main_3').offset().top) {
+                 $('#main_3 ul').css({'transform':'scaleX(1)'});
+             }
+             if(pageYOffset == $('#main_2').offset().top) {
+                 $('#main_2 ul').css({'transform':'scaleX(1)'});
+             }
+        });
+        
+        
+    </script>
+    
+        
+        <!-- moving atom scripts -->
+			<meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+ 			<meta name="author" content="Vincent Garreau" />
+			<script src="moving_atom_js/particles.js"></script>
+			<script src="moving_atom_js/app.js"></script>
+
+			<!-- stats.js -->
+			<script src="moving_atom_js/stats.js"></script>
+			<script>
+				  var count_particles, stats, update;
+				  stats = new Stats;
+				  stats.setMode(0);
+				  stats.domElement.style.position = 'absolute';
+				  stats.domElement.style.left = '0px';
+				  stats.domElement.style.top = '0px';
+				  stats.domElement.style.display = 'none';
+				  document.body.appendChild(stats.domElement);
+				  count_particles = document.querySelector('.js-count-particles');
+				  update = function() {
+					stats.begin();
+					stats.end();
+					if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+					  count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+					}
+					requestAnimationFrame(update);
+				  };
+				  requestAnimationFrame(update);
+			</script>
+</html>
