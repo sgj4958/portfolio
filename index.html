@@ -52,7 +52,7 @@ http://dongsooworld.dothome.co.kr/
                     background-repeat: no-repeat;
                 }
         
-        .main_box ul {transform-origin: 0 50%; transform: scaleX(0); transition: .5s;}
+        #main_3 ul, #main_2 #ul_wrap {transform-origin: 0 50%; transform: scaleX(0); transition: .5s;}
         
         #main_1 {background-color: #87CEFA;}
         #main_1 #ground {background-color: #f4dcb6; width: 100%; height: 27%; position: absolute; bottom: 0; opacity: .9;}
@@ -68,7 +68,10 @@ http://dongsooworld.dothome.co.kr/
         #main_1 .moving_text {font-size: 3rem; color: #000; display: inline-block; margin-right: -2%;}
         #main_1 .typewrite, #main_1 .typewrite+div {font-size: 2rem; color: #555; display: inline-block;}
         
-        .main_box >#title {height: 5vh; font-size: 2rem; text-align: center; line-height: 5vh;}
+        .main_box >#title {height: 5vh; font-size: 2rem; text-align: center; line-height: 5vh; background-color: #fff; position: relative; z-index: 1; width: 15vw; margin: 2.5vh auto;}
+        #main_2 >#title {background-color: #f5f5f5;}
+        #main_3 >#title {width: 20vw;}
+        #main_4 >#title {margin: 0 auto;}
         .main_box .title_line {position: absolute; width: 2px; height: 2px; background-color: #000;}
         .main_box #title_top {width: 90%; top: 5%; left: 5%;}
         .main_box #title_bottom {width: 90%; bottom: 5%; left: 5%;}
@@ -76,30 +79,27 @@ http://dongsooworld.dothome.co.kr/
         .main_box #title_right {height: 90%; top: 5%; right: 5%;}
         
         #main_2 {background-color: #f5f5f5;}
-        #main_2 #sub_title {font-size: .9rem; margin-left: 44%; color: #555; text-align: left; line-height: 2;}
+        #main_2 #sub_title {font-size: 1.1rem; color: #555; text-align: left; line-height: 2; width: 160%;}
         #main_2 #ul_wrap {position: relative; font-size: 2rem;}
-        #main_2 #ul_wrap ul {position: relative; z-index: 1;}
-        #main_2 #ul_wrap li {height: 15vh; margin-left: 44%; cursor: pointer; width: 20vw;}
-        #main_2 #ul_wrap li div {display: inline-block; vertical-align: middle;}
-        #main_2 ul .img {background-position: center; background-size: contain; background-repeat: no-repeat; width: 80px; height: 100%; margin-right: 10px;}
-        #main_2 ul li:nth-child(1) .img {background-image: url(images/illustrator.png);}
-        #main_2 ul li:nth-child(2) .img {background-image: url(images/photoshop.png);}
-        #main_2 ul li:nth-child(3) .img {background-image: url(images/photoshop.png);}
-        #main_2 ul li:nth-child(4) .img {background-image: url(images/bracket.png);}
-        #main_2 ul li:nth-child(5) .img {background-image: url(images/cafe24.png);}
-        #main_2 ul li:nth-child(6) .img {background-image: url(images/uidesign.png);}
+        #main_2 #ul_wrap ul {position: relative; z-index: 3;}
+        #main_2 #ul_wrap li {height: 15vh; cursor: pointer; width: 100%;}
+        #main_2 #ul_wrap li span {font-size: 3rem; position: absolute; left: 50%; transform: translateX(-100%); transition: .5s;}
+        #main_2 #ul_wrap li >div {display: inline-block; vertical-align: middle; left: 50%; top: 12%; transition: .5s;}
+        #main_2 #ul_wrap li:hover span {transform: translateX(0);}
+        #main_2 #ul_wrap li:hover >div {transform: translateX(-100%);}
+        
         #main_2 #ul_wrap .ul_text {position: relative;} 
         #main_2 #ul_wrap #text_line {position: absolute; width: 1.5vw; height: 2px; background-color: #000; bottom: 0; left: 0; transition: .7s;}
         #main_2 #ul_wrap li:hover #text_line {width: 100%;}
         #main_2 .ul_item {position: absolute; top: 8%; left: 6%; bottom: 8%; right: 6%; background-color: #fff; visibility: hidden; opacity: 0; transition: 1s; overflow: hidden;}
         #main_2 #ul_line {position: absolute; top: -10%; right: -5px; width: 5px; height: 110vh; background-color: #000;}
-        #main_2 #ul_triangle {position: absolute; right: -75px; top: 50%; width: 0; height: 0; border: 50px solid #000; border-left-color: transparent; border-bottom-color: transparent; transform: rotate(45deg); transform-origin: 100% 0; cursor: pointer;}
+        #main_2 #ul_triangle {position: absolute; right: -75px; top: 45%; width: 0; height: 0; border: 50px solid #000; border-left-color: transparent; border-bottom-color: transparent; transform: rotate(45deg); transform-origin: 100% 0; cursor: pointer;}
         
         #main_2 .item_list {width: 20%; height: 33.33%; box-sizing: border-box; border: 1px solid #ccc; text-align: center; float: left; position: relative; cursor: pointer; left: 0; top: 0;}
         #main_2 .item_list .split {width: 50%; height: 100%;}
         #main_2 img {position:absolute; max-width:95%; max-height:95%; width:auto; height:auto; margin:auto; top:0; bottom:0; left:0; right:0;}
-        #main_2 img:hover {border-left: 1px solid #ddd; border-right: 1px solid #ddd; cursor: row-resize;}
-        #main_2 .item_list img+div {font-size: .9rem; background-color: rgba(255,255,255,.7); text-align: left; transition: .5s; opacity: 0; z-index: 1; position: absolute; bottom: 0; line-height: 2; width: 100%; height: 100%; padding: 13% 3%; box-sizing: border-box;}
+        #main_2 img:hover {cursor: row-resize;}
+        #main_2 .item_list img+div {font-size: 1.2rem; background-color: rgba(255,255,255,.7); text-align: left; transition: .5s; opacity: 0; z-index: 1; position: absolute; bottom: 0; line-height: 2; width: 100%; height: 100%; padding: 13% 3%; box-sizing: border-box;}
         #main_2 .item_list:hover img+div {opacity: 1;}
         #main_2 .item_list #plus {width: 30px; height: 30px; bottom: 3%; right: 3%; position: absolute; border: 1px solid #555; color: #555; font-size: 2rem; padding: 3px; text-align: center; line-height: 30px; border-radius: 50%; z-index: 2; background-color: #fff; transition: .5s;}
         #main_2 .item_list #plus:hover {transform: rotate(360deg);}
@@ -113,21 +113,22 @@ http://dongsooworld.dothome.co.kr/
         #main_2 #item_4 .item_list {width: 33.33%; height: 100%;}
         #main_2 #item_5 .item_list {width: 100%; height: 100%;}
         #main_2 #item_6 .item_list {width: 100%; height: 100%;}
-        #main_2 #item_6 #download {bottom: 3%; left: 3%; position: absolute; border: 1px solid #555; color: #555; font-size: .8rem; padding: 3px; text-align: center; line-height: 30px; border-radius: 25px; z-index: 2; background-color: #fff; transition: .5s;}
-        #main_2 #item_6 #download:hover {background-color: #ccc;}
-        
+        #main_2 #item_6 a {bottom: 3%; left: 3%; position: absolute; border: 1px solid #555; color: #555; font-size: .8rem; padding: 3px; text-align: center; line-height: 30px; border-radius: 25px; z-index: 2; background-color: #fff; transition: .5s;}
+        #main_2 #item_6 a#mypart {left: 8%;}
+        #main_2 #item_6 a:hover {background-color: #ccc;}
+       
+        i:first-child {color: #320064; width: 80%; left: 10%;}
+        i {transition: 1s;}
+        li:hover i:first-child {border: 1px solid #320064; color: transparent; border-radius: 50%;}
+        li:hover i:last-child {color: #320064;}
+         
         #main_3 {background-color: rgba(255,255,255,.8);}
-        #main_3 i:first-child {color: #320064;}
-        #main_3 i {transition: 1s;}
-        #main_3 ul {width: 100%; height: 90%; padding: 5%; box-sizing: border-box;}
+        #main_3 ul {width: 100%; height: 90%; padding: 0 5%; box-sizing: border-box;}
         #main_3 li {width: 33.33%; margin: 2% 0; text-align: center; float: left;}
-        #main_3 li:hover i:first-child {border: 1px solid #320064; color: transparent; border-radius: 50%;}
-        #main_3 li:hover i:last-child {color: #320064;}
-        #main_3 li #title {font-size: 1.6rem;}
-        #main_3 li #text {font-size: 1.1rem; color: #777;}
+        #main_3 li #list_title {font-size: 1.6rem;}
+        #main_3 li #list_text {font-size: 1.1rem; color: #777;}
         
         #main_4 {height: 35vh;}
-        #main_4 #title {background-color: rgba(255,255,255,1); position: relative; z-index: 1; width: 15vw; margin: 0 auto;}
         #main_4 #mail_wrap {width: 200px; height: 200px; position: relative; background-color: #320064; margin: 3vh auto; border-radius: 10%;}
         #main_4 #mail_wrap:hover #mail_head {transform: rotateX(180deg); z-index: 1; transition: .5s;}
         #main_4 #mail_wrap:hover #mail_inner {transform: translateY(-40%); transition: .5s .3s;}
@@ -139,21 +140,24 @@ http://dongsooworld.dothome.co.kr/
         
         /* 반응형 설정 시작 */
         @media only screen and (max-width: 1281px) {
+            #main_2 #title {width: 20vw;}
+            #main_3 #title {width: 40vw;}
             #main_4 #title {width: 20vw;}
-            #main_2 #ul_wrap li {margin-left: 41%; width: 30vw;}
         }
         @media only screen and (max-width: 769px) {
             #main_3 li {width: 50%;}
-            #main_2 #ul_wrap li {margin-left: 35%; width: 40vw;}
             #main_4 #mail_wrap {width: 100px; height: 100px;}
             #main_4 #mail_wrap #mail_body {border-bottom: 17px solid #fff; border-left: 25px solid #fff; border-right: 25px solid #fff; border-top: 17px solid transparent;}
             #main_4 #mail_wrap #mail_head {border-top: 17px solid #fff; border-bottom: 17px solid transparent; border-left: 25px solid transparent; border-right: 25px solid transparent;}
             #main_4 #mail_wrap #mail_inner {width: 25px; height: 30px;}
+            #main_2 #title {width: 30vw;}
+            #main_3 #title {width: 50vw;}
             #main_4 #title {width: 35vw;}
         }
         @media only screen and (max-width: 541px) {
             #main_3 li {width: 45%;}
-            #main_2 #ul_wrap li {margin-left: 25%; width: 60vw;}
+            #main_2 #title {width: 40vw;}
+            #main_3 #title {width: 70vw;}
             #main_4 #title {width: 50vw;}
         }
         /* 반응형 설정 끝 */
@@ -315,56 +319,56 @@ http://dongsooworld.dothome.co.kr/
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="far fa-images fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="title">포토샵</p>
-                    <p id="text">이미지 편집, 보정, 합성, 상세페이지 제작</p>
+                    <p id="list_title">포토샵</p>
+                    <p id="list_text">이미지 편집, 보정, 합성, 상세페이지 제작</p>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-draw-polygon fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="title">일러스트레이터</p>
-                    <p id="text">로고제작, 상품디자인, 캐릭터 제작</p>
+                    <p id="list_title">일러스트레이터</p>
+                    <p id="list_text">로고제작, 상품디자인, 캐릭터 제작</p>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-laptop-code fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="title">홈페이지 제작</p>
-                    <p id="text">HTML5, CSS3를 이용한 홈페이지 제작</p>
+                    <p id="list_title">홈페이지 제작</p>
+                    <p id="list_text">HTML5, CSS3를 이용한 홈페이지 제작</p>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-store fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="title">쇼핑몰 관리/편집/상품등록</p>
-                    <p id="text">cafe24 관리 및 메인페이지 편집, 상품세부설정 및 상세페이지 제작 가능</p>
+                    <p id="list_title">쇼핑몰 관리/편집/상품등록</p>
+                    <p id="list_text">cafe24 관리 및 메인페이지 편집, 상품세부설정 및 상세페이지 제작 가능</p>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-camera-retro fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="title">상품사진 촬영/보정</p>
-                    <p id="text">DLSR 사진 촬영 및 사진 보정 가능</p>
+                    <p id="list_title">상품사진 촬영/보정</p>
+                    <p id="list_text">DLSR 사진 촬영 및 사진 보정 가능</p>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-search-dollar fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="title">쇼핑몰 및 오픈마켓 마케팅</p>
-                    <p id="text">아이템발굴, 시장분석, 판매전략 수립 가능</p>
+                    <p id="list_title">쇼핑몰 및 오픈마켓 마케팅</p>
+                    <p id="list_text">아이템발굴, 시장분석, 판매전략 수립 가능</p>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-mobile-alt fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="title">UI/UX</p>
-                    <p id="text">앱디자인 가능</p>
+                    <p id="list_title">UI/UX</p>
+                    <p id="list_text">앱디자인 가능</p>
                 </li>
             </ul>
         </div>
@@ -380,33 +384,51 @@ http://dongsooworld.dothome.co.kr/
             <div id="ul_wrap">
                 <ul>
                     <li>
-                        <div class="img"></div>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-draw-polygon fa-stack-1x fa-inverse"></i>
+                    </span>
                         <div class="ul_text">일러스트
                             <div id="text_line"></div>
                         </div>
                     </li>
                     <li>
-                        <div class="img"></div>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-camera-retro fa-stack-1x fa-inverse"></i>
+                    </span>
                         <div class="ul_text">사진 보정
                             <div id="text_line"></div></div>
                     </li>
                     <li>
-                        <div class="img"></div>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="far fa-images fa-stack-1x fa-inverse"></i>
+                    </span>
                         <div class="ul_text">상세페이지
                             <div id="text_line"></div></div>
                     </li>
                     <li>
-                        <div class="img"></div>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-laptop-code fa-stack-1x fa-inverse"></i>
+                    </span>
                         <div class="ul_text">웹사이트
                             <div id="text_line"></div></div>
                     </li>
                     <li>
-                        <div class="img"></div>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-store fa-stack-1x fa-inverse"></i>
+                    </span>
                         <div class="ul_text">쇼핑몰
                             <div id="text_line"></div></div>
                     </li>
                     <li>
-                        <div class="img"></div>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-mobile-alt fa-stack-1x fa-inverse"></i>
+                    </span>
                         <div class="ul_text">UI/UX 앱디자인
                             <div id="text_line"></div></div>
                     </li>
@@ -416,66 +438,66 @@ http://dongsooworld.dothome.co.kr/
                 <div class="ul_item" id="item_1">
                     <div class="item_list">
                         <img src="illust/fan.png">
-                        <div>유형: 수업<br><br>학원에서 처음으로 일러스트를 이용하여 그린 작품입니다. <br>기존의 선풍기 설명서를 보면서 똑같이 그렸습니다.</div>
+                        <div>유형: 수업<br>학원에서 처음으로 일러스트를 이용하여 그린 작품입니다. <br>기존의 선풍기 설명서를 보면서 똑같이 그렸습니다.</div>
                     </div>
                     <div class="item_list">
                         <img src="illust/truck.png">
-                        <div>유형: 수업<br><br>펜툴과 그라데이션을 이용한 트럭의 물결이 포인트입니다.<br>로고는 기존의 것을 가져왔습니다.</div>
+                        <div>유형: 수업<br>펜툴과 그라데이션을 이용한 트럭의 물결이 포인트입니다.<br>로고는 기존의 것을 가져왔습니다.</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/phone.png">
-                        <div>유형: 수업<br><br>mesh를 활용한 광원표현이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
+                        <div>유형: 수업<br>mesh를 활용한 광원표현이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/memo.png">
-                        <div>유형: 수업<br><br>패턴 제작이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
+                        <div>유형: 수업<br>패턴 제작이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/cup.png">
-                        <div>유형: 수업<br><br>3D revolve와 map art를 활용한 컵이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
+                        <div>유형: 수업<br>3D revolve와 map art를 활용한 컵이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/cosmetic.png">
-                        <div>유형: 수업<br><br>3D revolve에 광원을 넣은 것이 포인트입니다.<br>브러쉬의 자연스러운 질감을 표현하는 것이 가장 힘들었습니다.</div>
+                        <div>유형: 수업<br>3D revolve에 광원을 넣은 것이 포인트입니다.<br>브러쉬의 자연스러운 질감을 표현하는 것이 가장 힘들었습니다.</div>
                     </div>                 
                     <div class="item_list">
                         <img src="illust/bottle.png">
-                        <div>유형: 수업<br><br>3D 소주병입니다.<br>3D revolve와 map art가 포인트입니다.</div>
+                        <div>유형: 수업<br>3D 소주병입니다.<br>3D revolve와 map art가 포인트입니다.</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/bear.png">
-                        <div>유형: 수업<br><br>메모지 일러스트에 쓸 곰돌이입니다.<br>세세하게 넣은 그림자가 포인트입니다.</div>
+                        <div>유형: 수업<br>메모지 일러스트에 쓸 곰돌이입니다.<br>세세하게 넣은 그림자가 포인트입니다.</div>
                     </div>                    
                     <!--<div class="item_list">
                         <img src="illust/ryan.png">
-                        <div>유형: 취미<br><br>카카오프렌즈의 '라이언'입니다.<br>일러스트 연습삼아 그린 것인데, 이후 수업시간에 적극 활용하였습니다.</div>-->                    
+                        <div>유형: 취미<br>카카오프렌즈의 '라이언'입니다.<br>일러스트 연습삼아 그린 것인데, 이후 수업시간에 적극 활용하였습니다.</div>-->                    
                     <div class="item_list">
                         <img src="illust/chimaek.png">
-                        <div>유형: 취미<br><br>2018 대구치맥페스티벌 포스터를 그려보았습니다.<br>패턴 브러시를 활용하여 흩날리는 종이와 닭을 표현한 것이 포인트입니다.</div>
+                        <div>유형: 취미<br>2018 대구치맥페스티벌 포스터를 그려보았습니다.<br>패턴 브러시를 활용하여 흩날리는 종이와 닭을 표현한 것이 포인트입니다.</div>
                     </div>                       
                     <div class="item_list">
                         <img src="illust/bbibbi.png">
-                        <div>유형: 취미<br><br>아이유 앨범, 삐삐 표지입니다.<br>담벼락의 무늬가 포인트입니다.</div>
+                        <div>유형: 취미<br>아이유 앨범, 삐삐 표지입니다.<br>담벼락의 무늬가 포인트입니다.</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/pubg.jpg">
-                        <div>유형: 취미<br><br>게임, '배틀그라운드'의 대표이미지입니다.<br>총기 디테일이 가장 힘들었습니다.</div>
+                        <div>유형: 취미<br>게임, '배틀그라운드'의 대표이미지입니다.<br>총기 디테일이 가장 힘들었습니다.</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/harley.png">
-                        <div>유형: 취미<br><br>영화, '수어사이드 스쿼드'의 할리퀸입니다.<br>예쁘게 표현하는 것이 가장 어려웠습니다.</div>
+                        <div>유형: 취미<br>영화, '수어사이드 스쿼드'의 할리퀸입니다.<br>예쁘게 표현하는 것이 가장 어려웠습니다.</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/iron.png">
-                        <div>유형: 취미<br><br>영화, '아이언맨'의 주인공입니다.<br>명도높은 그라데이션을 이용한 금속의 질감표현이 포인트입니다.</div>
+                        <div>유형: 취미<br>영화, '아이언맨'의 주인공입니다.<br>명도높은 그라데이션을 이용한 금속의 질감표현이 포인트입니다.</div>
                     </div>                      
                     <div class="item_list">
                         <img src="illust/ryan_chicken.png">
-                        <div>유형: 취미<br><br>카카오프렌즈의 '라이언'입니다.<br>배틀그라운드의 치킨에서 아이디어를 따왔습니다. <br>이후 UI/UX 수업시간에 활용하였습니다.</div>
+                        <div>유형: 취미<br>카카오프렌즈의 '라이언'입니다.<br>배틀그라운드의 치킨에서 아이디어를 따왔습니다. <br>이후 UI/UX 수업시간에 활용하였습니다.</div>
                     </div>                      
                     <div class="item_list">
                         <img src="illust/davy.png">
-                        <div>유형: 취미<br><br>영화, '캐리비안의 해적'의 데비존스입니다.<br>일러스트로 외곽선을 그리고, 포토샵으로 채색하였습니다.<br>일러스트로는 벅찼던 실사묘사가 포인트입니다.</div>
+                        <div>유형: 취미<br>영화, '캐리비안의 해적'의 데비존스입니다.<br>일러스트로 외곽선을 그리고, 포토샵으로 채색하였습니다.<br>일러스트로는 벅찼던 실사묘사가 포인트입니다.</div>
                     </div>
                     <div id="item_list_detail">
                         <img src="illust/fan_ing.jpg">
@@ -663,8 +685,9 @@ http://dongsooworld.dothome.co.kr/
                 <div class="ul_item" id="item_6">
                     <div class="item_list">
                         <img src="uiux/balsamiq.jpg">
-                        <div>야먹자<br><br>UI/UX 디자인 수업시간에 했던 앱기획입니다.<br>Balsamiq mockup을 이용하였습니다.<br>조별 프로젝트이며, 전체 페이지수를 사람수만큼 나눠 분할작업하였습니다.<br>기존 앱과 차별점을 두어 기획하고, 디자인하며, 프로토타입을 제작한 후, 사용성조사를 하는 단계로 이루어져 있습니다.<br>다운로드를 클릭하면 프로토타입 pdf버전을 받을 수 있습니다.
-                            <a id="download" href="uiux/B4G2_proto_type.pdf" download>다운로드↓</a>
+                        <div>야먹자<br><br>UI/UX 디자인 수업시간에 했던 앱기획입니다.<br>Balsamiq mockup을 이용하였습니다.<br>조별 프로젝트이며, 전체 페이지수를 사람수만큼 나눠 분할작업하였습니다.<br>기존 앱과 차별점을 두어 기획하고, 디자인하며, 프로토타입을 제작한 후, 사용성조사를 하는 단계로 이루어져 있습니다.<br>다운로드를 클릭하면 프로토타입 pdf버전을 받을 수 있습니다.<br>My part는 제가 한 부분만 보실 수 있습니다.
+                            <a href="uiux/B4G2_proto_type.pdf" download>다운로드↓</a>
+                            <a id="mypart" href="uiux/mypart.jpg" target="_blank">My part</a>
                         </div>
                     </div>
                     <div id="item_list_detail">
@@ -882,7 +905,7 @@ http://dongsooworld.dothome.co.kr/
             });
             $('#main_2 #ul_wrapping').css('display','none');
             
-            scroll_switch = 0;
+            click_x();
         });
         
         $('#main_2 .item_list img+div').click(function() {
@@ -1013,10 +1036,68 @@ http://dongsooworld.dothome.co.kr/
                 scroll_switch = 0;
             }
             
+            move = 0;
             $('.ul_item').stop().animate({scrollTop: 0}, 500);
         });
         
-         window.addEventListener('scroll', function() {
+        function click_x() {
+            var _this = '#main_2 .ul_item .item_list #plus';
+            $('.item_list').css({
+                'width':'20%',
+                'height':'33.33%',
+                'position':'relative',
+                'z-index':0,
+                'background-color':'transparent',
+                'border':'1px solid #ccc'
+            });
+            $('#item_4 .item_list').css({
+                'width':'33.33%',
+                'height':'100%'
+            });
+            $('#item_4 .item_list:nth-child(1) img').attr('src','website/web_1.jpg');
+            $('#item_4 .item_list:nth-child(2) img').attr('src','website/web_2.jpg');
+            $('#item_4 .item_list:nth-child(3) img').attr('src','website/web_3.jpg');
+            
+            $('#item_5 .item_list').css({
+                'width':'100%',
+                'height':'100%'
+            });
+            $('#item_5 .item_list img').attr('src','shop/shop.jpg');
+            
+            $('#item_6 .item_list').css({
+                'width':'100%',
+                'height':'100%'
+            });
+            $('#item_6 .item_list img').attr('src','uiux/balsamiq.jpg');
+                
+            $(_this).text('+');
+            $(_this).css({
+                'position':'absolute',
+                'bottom':'3%',
+                'right':'3%'
+            });
+            $(_this).siblings('img').css({
+                'max-height':'95%',
+                'max-width':'95%',
+                'width':'auto',
+                'height':'auto',
+                'position':'absolute'
+            });
+            $('#main_2 .ul_item').css('overflow','hidden');
+            $('#main_2 .item_list img+div').css('display','block');
+            
+            scroll_switch = 0;
+            move = 0;
+            $('.ul_item').stop().animate({scrollTop: 0}, 500);
+            
+            $('#main_2 #ul_wrapping').css('display','none');
+            $('#main_2 #item_list_detail').css({
+                'transform':'translateX(100%)',
+                'opacity':0
+            });
+        }
+        
+        window.addEventListener('scroll', function() {
              var move_value = pageYOffset/innerHeight *100;
              $('#main_1 .typewrite, #main_1 .typewrite+div').css({
                  'opacity':1-move_value,
@@ -1051,7 +1132,7 @@ http://dongsooworld.dothome.co.kr/
                  $('#main_3 ul').css({'transform':'scaleX(1)'});
              }
              if(pageYOffset == $('#main_2').offset().top) {
-                 $('#main_2 ul').css({'transform':'scaleX(1)'});
+                 $('#main_2 #ul_wrap').css({'transform':'scaleX(1)'});
              }
         });
         
