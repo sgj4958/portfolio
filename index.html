@@ -68,7 +68,7 @@ http://dongsooworld.dothome.co.kr/
         #main_1 .moving_text {font-size: 3rem; color: #000; display: inline-block; margin-right: -2%;}
         #main_1 .typewrite, #main_1 .typewrite+div {font-size: 2rem; color: #555; display: inline-block;}
         
-        .main_box >#title {height: 5vh; font-size: 2rem; text-align: center; line-height: 5vh; background-color: #fff; position: relative; z-index: 1; width: 15vw; margin: 2.5vh auto;}
+        .main_box >#title {height: 5vh; font-size: 2rem; text-align: center; line-height: 5vh; background-color: #fff; position: relative; z-index: 1; width: 15vw; margin: 2.5vh auto; border-radius: 50%;}
         #main_2 >#title {background-color: #f5f5f5;}
         #main_3 >#title {width: 20vw;}
         #main_4 >#title {margin: 0 auto;}
@@ -175,7 +175,7 @@ http://dongsooworld.dothome.co.kr/
             </div>
             <ul>
                 <li>Skill<div id="nav_li_line"></div></li>
-                <li>Portfolio<div id="nav_li_line"></div></li>
+                <li>Work<div id="nav_li_line"></div></li>
                 <li>Contact<div id="nav_li_line"></div></li>
             </ul>
         </div>
@@ -313,6 +313,7 @@ http://dongsooworld.dothome.co.kr/
             <div class="title_line" id="title_right"></div>
             <div class="title_line" id="title_bottom"></div>
             <div class="title_line" id="title_left"></div>
+            <div id="background"></div>
             <ul>
                 <li>
                     <span class="fa-stack fa-4x">
@@ -660,11 +661,11 @@ http://dongsooworld.dothome.co.kr/
                 <div class="ul_item" id="item_4">
                     <div class="item_list">
                         <img src="website/web_1.jpg">
-                        <div>더페이스샵 리메이크<br><br>첫 개인프로젝트이며, 1920*1080 사이즈 고정입니다.<br>처음이지만 자바스크립트는 플러그인을 최대한 쓰지 않고 직접, 그리고 많이 넣고자 하였습니다.<br>프로젝트 도중 더페이스샵의 온라인몰이 종료되었는데, 이를 반영하여 구매기능을 없애고 매장찾기로 바꿨습니다.<br>메인이미지, 아이콘을 직접 만든 것이 포인트입니다.<br>일부 서브페이지는 미구현입니다. 각 카테고리마다 하나의 서브페이지만 있습니다.<br>상품들을 데이터베이스화하여 정렬기능을 구현하고 싶었지만 못한 것이 아쉽습니다.</div>
+                        <div>더페이스샵 리메이크<br><br>첫 개인프로젝트이며, 1920*1080 사이즈 고정입니다.<br>처음이지만 자바스크립트는 플러그인을 최대한 쓰지 않고 직접, 그리고 많이 넣고자 하였습니다.<br>프로젝트 도중 더페이스샵의 온라인몰이 종료되었는데, 이를 반영하여 구매기능을 없애고 매장찾기로 바꿨습니다.<br>메인이미지, 아이콘을 직접 만든 것이 포인트입니다.<br>일부 서브페이지는 미구현입니다. 각 카테고리마다 하나의 서브페이지만 있습니다.<br>아쉽게도 상품들의 데이터베이스화 및 정렬기능은 구현하진 못했습니다.<br>처음인만큼 기업 및 경쟁사 분석을 꼼꼼하게 한 것이 가장 큰 특징입니다.</div>
                     </div>
                     <div class="item_list">
                         <img src="website/web_2.jpg">
-                        <div>청춘마루 리메이크<br><br>두번째 개인프로젝트이며, 1920*1080 사이즈 고정입니다.<br>기존의 조금 독특했던 레이아웃을 더욱 부각시킨 것이 특징입니다.<br>모든 서브페이지를 구현하였으며, 제이쿼리와 css 애니메이션을 최대한 사용하여 화려함을 부각시켰습니다.<br>다만, 일부 이미지와 아이콘은 기존의 것을 그대로 사용하였습니다.<br>앞선 프로젝트와는 달리 css/js를 별도의 파일로 분리하는 것은 보기가 힘들어, 최대한 자제하였습니다.</div>
+                        <div>청춘마루 리메이크<br><br>두번째 개인프로젝트이며, 1920*1080 사이즈 고정입니다.<br>기존의 조금 독특했던 레이아웃을 더욱 부각시킨 것이 특징입니다.<br>모든 서브페이지를 구현하였으며, 제이쿼리와 css 애니메이션을 최대한 사용하여 화려함을 부각시켰습니다.<br>다만, 일부 이미지와 아이콘은 기존의 것을 그대로 사용하였습니다.<br>css/js를 별도의 파일로 분리하지 않고, jquery의 load를 이용하였습니다.</div>
                     </div>                    
                     <div class="item_list">
                         <img src="website/web_3.jpg">
@@ -685,7 +686,7 @@ http://dongsooworld.dothome.co.kr/
                 <div class="ul_item" id="item_6">
                     <div class="item_list">
                         <img src="uiux/balsamiq.jpg">
-                        <div>야먹자<br><br>UI/UX 디자인 수업시간에 했던 앱기획입니다.<br>Balsamiq mockup을 이용하였습니다.<br>조별 프로젝트이며, 전체 페이지수를 사람수만큼 나눠 분할작업하였습니다.<br>기존 앱과 차별점을 두어 기획하고, 디자인하며, 프로토타입을 제작한 후, 사용성조사를 하는 단계로 이루어져 있습니다.<br>다운로드를 클릭하면 프로토타입 pdf버전을 받을 수 있습니다.<br>My part는 제가 한 부분만 보실 수 있습니다.
+                        <div>야먹자<br><br>UI/UX 디자인 수업시간에 했던 앱기획입니다.<br>Balsamiq mockup을 이용하였습니다.<br>유일한 조별 프로젝트이며, 전체 페이지수를 사람수만큼 나눠 분할작업하였습니다.<br>기존 앱과 차별점을 두어 기획하고, 디자인하며, 프로토타입을 제작한 후, 사용성조사를 하는 단계로 이루어져 있습니다.<br>다운로드를 클릭하면 프로토타입 pdf버전을 받을 수 있습니다.<br>My part는 제가 한 부분만 보실 수 있습니다.
                             <a href="uiux/B4G2_proto_type.pdf" download>다운로드↓</a>
                             <a id="mypart" href="uiux/mypart.jpg" target="_blank">My part</a>
                         </div>
@@ -1096,6 +1097,52 @@ http://dongsooworld.dothome.co.kr/
                 'opacity':0
             });
         }
+        
+        $('#main_3 li').hover(
+            function() {
+                $('#main_3 #background').css({
+                    'opacity':'0.3',
+                    'position':'absolute',
+                    'top':'5.5%',
+                    'bottom':'5.5%',
+                    'left':'5.5%',
+                    'right':'5.5%',
+                    'background-size':'contain',
+                    'background-position':'center',
+                    'background-repeat':'no-repeat',
+                    'background-attachment':'fixed',
+                    'transition':'1s'
+                });
+                switch($(this).index()) {
+                    case 0:
+                        $('#main_3 #background').css('background-image','url("detail/vita_ing.jpg")');
+                        break;
+                    case 1:
+                        $('#main_3 #background').css('background-image','url("illust/iron_ing.jpg")');
+                        break;
+                    case 2:
+                        $('#main_3 #background').css('background-image','url("website/web_1.jpg")');
+                        break;
+                    case 3:
+                        $('#main_3 #background').css('background-image','url("shop/shop.jpg")');
+                        break;
+                    case 4:
+                        $('#main_3 #background').css('background-image','url("photo_wb/wb4_2.jpg")');
+                        break;
+                    case 5:
+                        $('#main_3 #background').css({
+                            'background-image':'url("shop/shop_plan.jpg")',
+                            'background-size':'cover',
+                            'background-position':'top'
+                        });
+                        break;
+                    case 6:
+                        $('#main_3 #background').css('background-image','url("uiux/uiux_main.jpg")');
+                        break;
+                }
+            },
+            function() {$('#main_3 #background').css({'background-image':'','opacity':0});}
+        );
         
         window.addEventListener('scroll', function() {
              var move_value = pageYOffset/innerHeight *100;
