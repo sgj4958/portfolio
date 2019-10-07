@@ -81,8 +81,10 @@ http://dongsooworld.dothome.co.kr/
         #main_2 {background-color: #f5f5f5;}
         #main_2 #sub_title {font-size: 1.1rem; color: #555; text-align: left; line-height: 2; width: 160%;}
         #main_2 #ul_wrap {position: relative; font-size: 2rem;}
-        #main_2 #ul_wrap ul {position: relative; z-index: 3;}
-        #main_2 #ul_wrap li {height: 15vh; cursor: pointer; width: 100%;}
+        #main_2 #ul_wrap ul {position: relative; z-index: 3; height: 90vh;}
+        #main_2 #ul_wrap ul li {height: 30%; cursor: pointer; width: 50%; position: relative; float: left;}
+        #main_2 #ul_wrap ul li:nth-child(1),
+        #main_2 #ul_wrap ul li:nth-child(2) {margin-top: 5%}
         #main_2 #ul_wrap li span {font-size: 3rem; position: absolute; left: 50%; transform: translateX(-100%); transition: .5s;}
         #main_2 #ul_wrap li >div {display: inline-block; vertical-align: middle; left: 50%; top: 12%; transition: .5s;}
         #main_2 #ul_wrap li:hover span {transform: translateX(0);}
@@ -92,7 +94,7 @@ http://dongsooworld.dothome.co.kr/
         #main_2 #ul_wrap #text_line {position: absolute; width: 1.5vw; height: 2px; background-color: #000; bottom: 0; left: 0; transition: .7s;}
         #main_2 #ul_wrap li:hover #text_line {width: 100%;}
         #main_2 .ul_item {position: absolute; top: 8%; left: 6%; bottom: 8%; right: 6%; background-color: #fff; visibility: hidden; opacity: 0; transition: 1s; overflow: hidden;}
-        #main_2 #ul_line {position: absolute; top: -10%; right: -5px; width: 5px; height: 110vh; background-color: #000;}
+        #main_2 #ul_line {position: absolute; top: -15%; right: -5px; width: 5px; height: 110vh; background-color: #000;}
         #main_2 #ul_triangle {position: absolute; right: -75px; top: 45%; width: 0; height: 0; border: 50px solid #000; border-left-color: transparent; border-bottom-color: transparent; transform: rotate(45deg); transform-origin: 100% 0; cursor: pointer;}
         
         #main_2 .item_list {width: 20%; height: 33.33%; box-sizing: border-box; border: 1px solid #ccc; text-align: center; float: left; position: relative; cursor: pointer; left: 0; top: 0;}
@@ -155,8 +157,15 @@ http://dongsooworld.dothome.co.kr/
             #main_4 #title {width: 35vw;}
         }
         @media only screen and (max-width: 541px) {
-            #main_3 li {width: 45%;}
+            #main_3 li {width: 45%; height: 22%; font-size: .5rem;}
+            #main_2 li {font-size: 1.2rem;}
+            #main_2 li span i:nth-child(1) {font-size: 4rem; width: 50%; left: 23%;}
+            #main_2 li span i:nth-child(2) {font-size: 2rem; line-height: 3.8rem;}
             #main_2 #title {width: 40vw;}
+            #main_2 #sub_title {margin-left: -10vw;}
+            #main_2 .ul_item {overflow-y: scroll;}
+            #main_2 .item_list {width: 50%;}
+            #main_2 #item_4 .item_list {width: 100%;}
             #main_3 #title {width: 70vw;}
             #main_4 #title {width: 50vw;}
         }
@@ -842,18 +851,17 @@ http://dongsooworld.dothome.co.kr/
         
         
         function resolution() {
-            if(innerWidth > 1280) return 0;
-            else if(innerWidth > 768) return 1;
-            else if(innerWidth > 540) return 2;
+            if(innerWidth > 1281) return 0;
+            else if(innerWidth > 769) return 1;
+            else if(innerWidth > 541) return 2;
             else return 3;
         }
-        $(window).resize(detect_resize);
+        $(window).resize(click_x);
 
         function detect_resize() {
             switch(resolution()) {
                 case 0:
                 case 1:
-                    break;
                 case 2:
                 case 3:
                     break;
@@ -1004,6 +1012,7 @@ http://dongsooworld.dothome.co.kr/
                     });
                     $(this).siblings('img').attr('src','website/web_'+($(this).parent('.item_list').index()+1)+'.jpg');
                 }
+                
                 if( $(this).parent().parent('#item_5').length == 1 ) {
                     $(this).parent('.item_list').css({
                         'width':'100%',
@@ -1035,6 +1044,14 @@ http://dongsooworld.dothome.co.kr/
                 $('#main_2 .item_list img+div').css('display','block');
             
                 scroll_switch = 0;
+                
+                if(resolution() == 3) {
+                    $('.item_list').css('width','50%');
+                    $('#main_2 .ul_item').css('overflow-y','scroll');
+                    $('#item_4 .item_list').css('width','100%');
+                    $('#item_5 .item_list').css('width','100%');
+                    $('#item_6 .item_list').css('width','100%');
+                }
             }
             
             move = 0;
@@ -1055,6 +1072,7 @@ http://dongsooworld.dothome.co.kr/
                 'width':'33.33%',
                 'height':'100%'
             });
+            
             $('#item_4 .item_list:nth-child(1) img').attr('src','website/web_1.jpg');
             $('#item_4 .item_list:nth-child(2) img').attr('src','website/web_2.jpg');
             $('#item_4 .item_list:nth-child(3) img').attr('src','website/web_3.jpg');
@@ -1096,6 +1114,14 @@ http://dongsooworld.dothome.co.kr/
                 'transform':'translateX(100%)',
                 'opacity':0
             });
+            
+            if(resolution() == 3) {
+                $('.item_list').css('width','50%');
+                $('#main_2 .ul_item').css('overflow-y','scroll');
+                $('#item_4 .item_list').css('width','100%');
+                $('#item_5 .item_list').css('width','100%');
+                $('#item_6 .item_list').css('width','100%');
+            }
         }
         
         $('#main_3 li').hover(
@@ -1115,19 +1141,19 @@ http://dongsooworld.dothome.co.kr/
                 });
                 switch($(this).index()) {
                     case 0:
-                        $('#main_3 #background').css('background-image','url("detail/vita_ing.jpg")');
+                        $('#main_3 #background').css('background-image','url("intro/detail.jpg")');
                         break;
                     case 1:
-                        $('#main_3 #background').css('background-image','url("illust/iron_ing.jpg")');
+                        $('#main_3 #background').css('background-image','url("intro/illust.jpg")');
                         break;
                     case 2:
-                        $('#main_3 #background').css('background-image','url("website/web_1.jpg")');
+                        $('#main_3 #background').css('background-image','url("intro/web.jpg")');
                         break;
                     case 3:
-                        $('#main_3 #background').css('background-image','url("shop/shop.jpg")');
+                        $('#main_3 #background').css('background-image','url("intro/shop.jpg")');
                         break;
                     case 4:
-                        $('#main_3 #background').css('background-image','url("photo_wb/wb4_2.jpg")');
+                        $('#main_3 #background').css('background-image','url("intro/photo.jpg")');
                         break;
                     case 5:
                         $('#main_3 #background').css({
@@ -1137,7 +1163,7 @@ http://dongsooworld.dothome.co.kr/
                         });
                         break;
                     case 6:
-                        $('#main_3 #background').css('background-image','url("uiux/uiux_main.jpg")');
+                        $('#main_3 #background').css('background-image','url("intro/uiux.jpg")');
                         break;
                 }
             },
