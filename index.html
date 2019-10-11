@@ -130,7 +130,11 @@
         #main_4 #mail_wrap #mail_inner {width: 50px; height: 60px; position: absolute; left: 0; top: 0; bottom: 0; right: 0; margin: auto; border-radius: 5px; z-index: 1; background-color: #fff; border: 1px solid #000;}
         #main_4 #mail_wrap #mail_inner .inner_line {width: 70%; height: 1px; background-color: #000; margin-left: 15%; margin-top: 20%;}
         #main_4 #mail_wrap #mail_text {color: #fff; text-align: center; font-size: 1.2rem; padding-top: 80%;}
-        
+        /*
+        @-webkit-keyframes typing {from {width: 0;}}
+        @-webkit-blink-caret {50% {border-color: transparent;}}
+        .main_box #title {-webkit-animation: typing 2s steps(21, end), blink-caret .5s step-end infinite; overflow: hidden;}
+        */
         /* 반응형 설정 시작 */
         @media only screen and (max-width: 1281px) {
             #main_2 #title {width: 20vw;}
@@ -192,6 +196,10 @@
         #navigation li {font-size: 1.2rem; height: 5vh; line-height: 5vh; transform-origin: 50% 0; transform: scaleY(0); transition: .5s .2s; cursor: pointer;}
         #navigation li #nav_li_line {width: 10px; height: 1px; background-color: #000; margin-top: -10px; transition: .5s;}
         #navigation li:hover #nav_li_line {width: 135%;}
+        
+        #main_1 #introduce {width: 20%; position: absolute; left: 1%; bottom: 1%; background-color: rgba(255,255,255,.7); font-size: 1.2rem; line-height: 2; padding-left: 1%; border-radius: 10px;}
+        #main_1 #introduce a {border: 1px solid #000; border-radius: 5px; padding: 1%; transition: .5s;}
+        #main_1 #introduce a:hover {background-color: #777; color: #fff;}
     </style>
     <script>
         $('#navigation img').click(function() {
@@ -304,6 +312,11 @@
                 </div>
                 <div>_</div>
             </div> 
+            <div id="introduce">
+                <div>포트폴리오를 보시기 전에!<br>소개페이지를 먼저 보시면 더욱 효율적입니다.</div>
+                <a href="introduce.jpg" target="_blank">이미지 새창열기</a>
+                <a href="introduce.pdf" download>pdf 다운로드</a>
+            </div>
         </div>
         
         
