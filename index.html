@@ -122,6 +122,9 @@
         #main_3 li #list_text {font-size: 1.1rem; color: #777;}
         
         #main_4 {height: 35vh;}
+        #main_4 .split {position: absolute; width: 30%; height: 100%; padding: 2% 5%; left: 20%; top: 0;}
+        #main_4 .split+.split {left: 38.5%;}
+        
         #main_4 #mail_wrap {width: 200px; height: 200px; position: relative; background-color: #320064; margin: 3vh auto; border-radius: 10%;}
         #main_4 #mail_wrap:hover #mail_head {transform: rotateX(180deg); z-index: 1; transition: .5s;}
         #main_4 #mail_wrap:hover #mail_inner {transform: translateY(-40%); transition: .5s .3s;}
@@ -130,11 +133,40 @@
         #main_4 #mail_wrap #mail_inner {width: 50px; height: 60px; position: absolute; left: 0; top: 0; bottom: 0; right: 0; margin: auto; border-radius: 5px; z-index: 1; background-color: #fff; border: 1px solid #000;}
         #main_4 #mail_wrap #mail_inner .inner_line {width: 70%; height: 1px; background-color: #000; margin-left: 15%; margin-top: 20%;}
         #main_4 #mail_wrap #mail_text {color: #fff; text-align: center; font-size: 1.2rem; padding-top: 80%;}
+        
+        #main_4 #call_wrap {width: 200px; height: 200px; background-color: #320064; margin: 3vh auto; border-radius: 10%; text-align: center; cursor: pointer;}
+        #main_4 #call_wrap img {width: 150px; height: 150px; margin-top: 10px;}
+        #main_4 #call_wrap #call_text {color: #fff; text-align: center; font-size: 1.2rem; margin-top: -10px;}
+        #main_4 #call_wrap:hover img {animation: seesaw 1s 1}
+        @keyframes seesaw {
+            20%,60% {transform: rotate(-5deg)}
+            40%,80% {transform: rotate(10deg)}
+            100% {transform: rotate(0)}
+        }
+        
         /*
         @-webkit-keyframes typing {from {width: 0;}}
         @-webkit-blink-caret {50% {border-color: transparent;}}
         .main_box #title {-webkit-animation: typing 2s steps(21, end), blink-caret .5s step-end infinite; overflow: hidden;}
         */
+        
+        #main_5 {background-color: rgba(255,255,255,0.9);}
+        #main_5 .split {position: absolute; top: 0; left: 0; width: 50%; height: 100%; padding: 15% 0; text-align: center;}
+        #main_5 .split+.split {left: 50%;}
+        #main_5 img {width: 30%; border-radius: 5%;}
+        #main_5 ul {transform-origin: 0 50%; transform: scaleX(0); transition: .5s;}
+        #main_5 li {text-align: left; font-size: 1.5rem; margin-bottom: 3vh;}
+        #main_5 li:first-child {font-size: 2rem; color: rgba(0,0,0,.5)}
+        #main_5 li::first-letter {color: #320064;}
+        #main_5 li:nth-child(4)::first-letter {color: red;}
+        #main_5 li:nth-child(5)::first-letter {color: blue;}
+        #main_5 li:nth-child(6)::first-letter {color: gold;}
+        #main_5 li:before {position: absolute; content: ''; width: 3px; height: 10px; background-color: #320064; margin: 1.1% 0 0 -1%; border-radius: 50%;}
+        #main_5 li:after {content: ''; width: 30px; height: 30px; background-size: contain; position: absolute; background-repeat: no-repeat; opacity: .15;}
+        #main_5 li:nth-child(4):after {background-image: url(images/icecream.png);}
+        #main_5 li:nth-child(5):after {background-image: url(images/pepper.png); width: 35px; height: 35px; margin-top: 8px;}
+        #main_5 li:nth-child(6):after {background-image: url(images/coffee.png); width: 35px; height: 35px; margin-top: 3px;}
+        
         /* 반응형 설정 시작 */
         @media only screen and (max-width: 1281px) {
             #main_2 #title {width: 20vw;}
@@ -143,6 +175,8 @@
         }
         @media only screen and (max-width: 769px) {
             #main_3 li {width: 50%;}
+            #main_4 #call_wrap {width: 100px; height: 100px;}
+            #main_4 #call_wrap img {width: 75px; height: 75px;}
             #main_4 #mail_wrap {width: 100px; height: 100px;}
             #main_4 #mail_wrap #mail_body {border-bottom: 17px solid #fff; border-left: 25px solid #fff; border-right: 25px solid #fff; border-top: 17px solid transparent;}
             #main_4 #mail_wrap #mail_head {border-top: 17px solid #fff; border-bottom: 17px solid transparent; border-left: 25px solid transparent; border-right: 25px solid transparent;}
@@ -178,27 +212,29 @@
                 <div class="nav_toggle_line"></div>
             </div>
             <ul>
-                <li>Skill<div id="nav_li_line"></div></li>
-                <li>Work<div id="nav_li_line"></div></li>
-                <li>Contact<div id="nav_li_line"></div></li>
+                <li>I AM<div id="nav_li_line"></div></li>
+                <li>SKILL<div id="nav_li_line"></div></li>
+                <li>WORK<div id="nav_li_line"></div></li>
+                <li>CONTACT<div id="nav_li_line"></div></li>
             </ul>
         </div>
     </div>
     <style>
-        #navigation {position: fixed; top: 0; left: 0; z-index: 10;}
-        #navigation #nav_wrap {width: 50px; height: 100px; background-color: rgba(255,255,255,.8); padding: 1vw; border-radius: 0 0 20px 20px; overflow: hidden;}
-        #navigation img {width: 50px; height: 50px; cursor: pointer;}
+        #navigation {position: fixed; top: 0; left: 10px; z-index: 10;}
+        #navigation #nav_wrap {width: 70px; height: 100px; background-color: rgba(255,255,255,.8); padding: 1vw; border-radius: 0 0 20px 20px; overflow: hidden; transition: 1s;}
+        #navigation img {width: 70px; height: 70px; cursor: pointer;}
         #navigation #nav_toggle {width: 30px; height: 30px; margin: 0 auto; position: relative; overflow: hidden; cursor: grab;}
-        #navigation #nav_toggle .nav_toggle_line {width: 80%; height: 1px; background-color: #000; position: absolute; left: 10%; transition: .5s; transform-origin: 0 50%;}
+        #navigation #nav_toggle .nav_toggle_line {width: 80%; height: 2px; background-color: #000; position: absolute; left: 10%; transition: .5s; transform-origin: 0 50%;}
         #navigation #nav_toggle .nav_toggle_line:nth-child(1) {top: 23%;}
         #navigation #nav_toggle .nav_toggle_line:nth-child(2) {top: 48.5%;}
         #navigation #nav_toggle .nav_toggle_line:nth-child(3) {top: 75%;}
         #navigation li {font-size: 1.2rem; height: 5vh; line-height: 5vh; transform-origin: 50% 0; transform: scaleY(0); transition: .5s .2s; cursor: pointer;}
-        #navigation li #nav_li_line {width: 10px; height: 1px; background-color: #000; margin-top: -10px; transition: .5s;}
+        #navigation li::first-letter {color: #320064;}
+        #navigation li #nav_li_line {width: 10px; height: 2px; background-color: #000; margin-top: -10px; transition: .5s;}
         #navigation li:hover #nav_li_line {width: 135%;}
         
-        #main_1 #introduce {width: 20%; position: absolute; left: 1%; bottom: 1%; background-color: rgba(255,255,255,.7); font-size: 1.2rem; line-height: 2; padding-left: 1%; border-radius: 10px;}
-        #main_1 #introduce a {border: 1px solid #000; border-radius: 5px; padding: 1%; transition: .5s;}
+        #main_1 #introduce {position: absolute; left: 1%; bottom: 1%; background-color: rgba(255,255,255,.7); font-size: 1.2rem; line-height: 2; padding: 1%; border-radius: 10px;}
+        #main_1 #introduce a {border: 1px solid #000; border-radius: 5px; padding: 7px; transition: .5s;}
         #main_1 #introduce a:hover {background-color: #777; color: #fff;}
     </style>
     <script>
@@ -206,12 +242,15 @@
             $("html,body").stop().animate({scrollTop: '0px'}, 800);
         });
         $('#navigation li:nth-child(1)').click(function() {
-            $("html,body").stop().animate({scrollTop: $('#main_3').offset().top}, 800);
+            $("html,body").stop().animate({scrollTop: $('#main_5').offset().top}, 800);
         });
         $('#navigation li:nth-child(2)').click(function() {
-            $("html,body").stop().animate({scrollTop: $('#main_2').offset().top}, 800);
+            $("html,body").stop().animate({scrollTop: $('#main_3').offset().top}, 800);
         });
         $('#navigation li:nth-child(3)').click(function() {
+            $("html,body").stop().animate({scrollTop: $('#main_2').offset().top}, 800);
+        });
+        $('#navigation li:nth-child(4)').click(function() {
             $("html,body").stop().animate({scrollTop: $('#main_4').offset().top}, 800);
         });
         var nav_toggle = 0;
@@ -222,7 +261,7 @@
                 $('#navigation #nav_toggle .nav_toggle_line:nth-child(3)').css({'transform':'rotate(-45deg)'});
                 nav_toggle = 1;
                 
-                $('#navigation #nav_wrap').css({'height':'auto'});
+                $('#navigation #nav_wrap').css({'height':'300px'});
                 $('#navigation li').css({'transform':'scaleY(1)'});
             } else {
                 $('#navigation #nav_toggle .nav_toggle_line').css({
@@ -302,9 +341,9 @@
                 <div class="moving_text">자</div>
                 <div class="moving_text">이</div>
                 <div class="moving_text">너&nbsp;</div>
-                <div class="moving_text">서</div>
-                <div class="moving_text">기</div>
-                <div class="moving_text">정</div>
+                <div class="moving_text" style="color: #320064">서</div>
+                <div class="moving_text" style="color: #320064">기</div>
+                <div class="moving_text" style="color: #320064">정</div>
                 <br>
                 <div class="moving_text typewrite" data-period="2000" data-type='[ "여기있어요!", "I am here!" ]'>
                     <!--made by vipul mirajkar thevipulm.appspot.com-->
@@ -313,12 +352,33 @@
                 <div>_</div>
             </div> 
             <div id="introduce">
-                <div>포트폴리오를 보시기 전에!<br>소개페이지를 먼저 보시면 더욱 효율적입니다.</div>
-                <a href="introduce.jpg" target="_blank">이미지 새창열기</a>
-                <a href="introduce.pdf" download>pdf 다운로드</a>
+                <div>포트폴리오 요약본</div>
+                <a href="introduce.jpg" target="_blank">jpg.새창열기</a>
+                <br>
+                <a href="introduce.pdf" download>pdf.다운로드</a>
             </div>
         </div>
         
+        <div class="main_box" id="main_5">
+            <div id="title">이게 저에요!</div>
+            <div class="title_line" id="title_top"></div>
+            <div class="title_line" id="title_right"></div>
+            <div class="title_line" id="title_bottom"></div>
+            <div class="title_line" id="title_left"></div>
+            <div class="split">
+                <img src="images/profile.jpg">
+            </div>
+            <div class="split">
+                <ul>
+                    <li>평범함을 지양합니다.<br>독특함을 추구하는, 웹디자이너 서기정입니다.</li>
+                    <li>금오공대 전자공학부 전자IT융합전공</li>
+                    <li>1990.05.28</li>
+                    <li>♥ 달달한 것</li>
+                    <li>× 매운 것</li>
+                    <li>★ 커피중독</li>
+                </ul>
+            </div>
+        </div>
         
         <div class="main_box" id="main_3">
             <div id="title">저는 이런 것들을 할 줄 알아요.</div>
@@ -722,20 +782,30 @@
             <div class="title_line" id="title_bottom"></div>
             <div class="title_line" id="title_left"></div>
             
-            
-            <div id="mail_wrap">
-                <a href="mailto:sgj4958@naver.com">
-                <div id="mail_body"></div>
-                <div id="mail_head"></div>
-                <div id="mail_inner">
-                    <div class="inner_line"></div>
-                    <div class="inner_line"></div>
-                    <div class="inner_line"></div>
+            <div class="split">
+                <div id="mail_wrap">
+                    <a href="mailto:sgj4958@naver.com">
+                        <div id="mail_body"></div>
+                        <div id="mail_head"></div>
+                        <div id="mail_inner">
+                            <div class="inner_line"></div>
+                            <div class="inner_line"></div>
+                            <div class="inner_line"></div>
+                        </div>
+                        <div id="mail_text">메일쓰기</div>
+                    </a>
                 </div>
-                <div id="mail_text">메일쓰기</div>
-                </a>
-            </div>
                 <div style="text-align: center; margin-top: -1.5vh; font-size: 1.4rem;">sgj4958@naver.com</div>
+            </div>
+            <div class="split">
+                <div id="call_wrap">
+                    <a href="tel:010-8837-2673">
+                        <img src="images/call.png">
+                        <div id="call_text">전화하기</div>
+                    </a>
+                </div>
+                <div style="text-align: center; margin-top: -1.5vh; font-size: 1.4rem;">010 8837 2673</div>
+            </div>
         </div>
         
         <div id="footer">
@@ -1208,6 +1278,9 @@
                  'transform':'translateY('+(move_value*0.1)+'vh)'
              });
              
+             if(pageYOffset == $('#main_5').offset().top) {
+                 $('#main_5 ul').css({'transform':'scaleX(1)'});
+             }
              if(pageYOffset == $('#main_3').offset().top) {
                  $('#main_3 ul').css({'transform':'scaleX(1)'});
              }
