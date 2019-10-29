@@ -45,6 +45,7 @@
         #main_3 ul, #main_2 #ul_wrap {transform-origin: 0 50%; transform: scaleX(0); transition: .5s;}
         
         #main_1 {background-color: #87CEFA;}
+        #main_1 {background-color: #000;}
         #main_1 #ground {background-color: #f4dcb6; width: 100%; height: 27%; position: absolute; bottom: 0; opacity: .9;}
         #main_1 svg#character {position: absolute; bottom: 10%; right: 10%;}
         #main_1 svg#cloud {position: absolute; top: 10%; left: 10%;}
@@ -55,7 +56,7 @@
         #main_1 .ground:nth-child(4) {left: 75%;}
         
         #main_1 #text {position: fixed; top: 40%; left: 20%;}
-        #main_1 .moving_text {font-size: 3rem; color: #000; display: inline-block; margin-right: -2%;}
+        #main_1 .moving_text {font-size: 3rem; color: #333; display: inline-block; margin-right: -2%;}
         #main_1 .typewrite, #main_1 .typewrite+div {font-size: 2rem; color: #555; display: inline-block;}
         
         .main_box >#title {height: 5vh; font-size: 2rem; text-align: center; line-height: 5vh; background-color: #fff; position: relative; z-index: 1; width: 15vw; margin: 2.5vh auto; border-radius: 50%;}
@@ -276,7 +277,7 @@
     
     <div id="main">
         <div class="main_box" id="main_1">
-            
+            <!--
             <svg id="cloud" viewBox="0 0 277.58 182.61"><path d="M896,552.51s-50,25.07-68-22.39c0,0-16-34.85,31.33-51.15,0,0-18.67-20.3-2-43,0,0,23.33-30.67,58,0,0,0,1.33-37.35,50-37.33,0,0,28.67-.09,38,41.33,0,0,32-22,45.33,11.67,0,0,60.67-23.13,51.34,66.27,0,0-9.34,58.6-64.67,33.33,0,0-22,32.1-48,.75C987.33,552,936.66,613,896,552.51Z" transform="translate(-824.39 -397.67)" style="fill:#fff;stroke:#5cd3ff;stroke-miterlimit:10;stroke-width:2px"/><circle cx="179.3" cy="111.36" r="3.69" style="fill:#5cd3ff"/><circle cx="228.27" cy="111.36" r="3.69" style="fill:#5cd3ff"/><line x1="175.6" y1="124.33" x2="182.99" y2="124.33" style="fill:none;stroke:#5cd3ff;stroke-miterlimit:10"/><line x1="224.58" y1="123" x2="231.96" y2="123" style="fill:none;stroke:#5cd3ff;stroke-miterlimit:10"/><path d="M1003.69,522S1001,534.67,1027,534.67c0,0,25.66,1.1,25.66-14" transform="translate(-824.39 -397.67)" style="fill:none;stroke:#5cd3ff;stroke-miterlimit:10"/><ellipse cx="168.44" cy="119.67" rx="7.17" ry="2.17" style="fill:#fcf"/><ellipse cx="239.44" cy="119.67" rx="7.17" ry="2.17" style="fill:#fcf"/></svg>
             <style>
                 svg#cloud {width: 20%; height: 20%; animation: svg_ani_cloud_move 30s infinite;}
@@ -324,7 +325,8 @@
                     100% {stroke-dashoffset: 0; fill: auto;}
                 }
             </style>
-            
+            -->
+            <div style="border-radius: 50%; width: 460px; height: 460px; background-image: url(images/giphy.gif); background-size: cover; position: absolute; left: 50%; top: 50%; transform: translateX(-50%) translateY(-50%);"></div>
             
 			<!-- count particles -->
 			<div class="count-particles">
