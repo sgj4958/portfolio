@@ -4,10 +4,12 @@
     <meta charset="utf-8" />
     <link rel="icon" sizes="16x16 32x32" href="images/icon_logo.ico">
     <title>서기정's portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="common.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     
     <style>
         /* ---- stats.js ---- */
@@ -205,8 +207,9 @@
     
 </head>
 <body>
-    <div id="navigation">
+    <div class="move_window" id="navigation">
         <div id="nav_wrap">
+            <div id="window_title">■ Navigation</div>
             <a href="#main_1"><img src="images/icon_logo.png"></a>
             <div id="nav_toggle">
                 <div class="nav_toggle_line"></div>
@@ -221,6 +224,7 @@
             </ul>
         </div>
     </div>
+    <div id="portrait"><img src="images/portrait.png"></div>
     <style>
         #navigation {position: fixed; top: 0; left: 10px; z-index: 10;}
         #navigation #nav_wrap {width: 70px; height: 100px; background-color: rgba(255,255,255,.8); padding: 1vw; border-radius: 0 0 20px 20px; overflow: hidden; transition: 1s;}
@@ -235,9 +239,13 @@
         #navigation li #nav_li_line {width: 10px; height: 2px; background-color: #000; margin-top: -10px; transition: .5s;}
         #navigation li:hover #nav_li_line {width: 135%;}
         
-        #main_1 #introduce {position: absolute; left: 1%; bottom: 1%; background-color: rgba(255,255,255,.7); font-size: 1.2rem; line-height: 2; padding: 1%; border-radius: 10px;}
-        #main_1 #introduce a {border: 1px solid #000; border-radius: 5px; padding: 7px; transition: .5s;}
+        #main_1 #introduce {position: absolute; left: 1%; bottom: 1%; background-color: rgba(255,255,255,.7); font-size: 1.2rem; line-height: 2; padding: 1%; border-radius: 10px; height: 100px;}
+        #main_1 #introduce a {border: 1.5px solid #320064; border-radius: 5px; padding: 7px; transition: .5s;}
         #main_1 #introduce a:hover {background-color: #777; color: #fff;}
+        
+        #window_title {position: absolute; top: 0; left: 0; width: 100%; text-indent: 5px; border-bottom: 1px solid #000; font-size: .7rem; background-color: #789;}
+        #window_title::first-letter {color: #320064;}
+        #portrait {position: fixed; right: 0; bottom: 0;}
     </style>
     <script>
         $('#navigation img').click(function() {
@@ -354,7 +362,8 @@
                 </div>
                 <div>_</div>
             </div> 
-            <div id="introduce">
+            <div class="move_window" id="introduce">
+                <div id="window_title">■ Information</div>
                 <div>포트폴리오 요약</div>
                 <a href="introduce.jpg" target="_blank">jpg.새창열기</a>
                 <br>
@@ -1291,6 +1300,7 @@
              }
         });
         
+        $('.move_window').draggable({opacity:.7});
         
     </script>
     
