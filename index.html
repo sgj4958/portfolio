@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     
     <style>
-        /* ---- stats.js ---- */
+        /*
                 .count-particles{
                     position: absolute;
                     top: 48px;
@@ -33,7 +33,6 @@
                 }
                 #stats{border-radius: 3px 3px 0 0; overflow: hidden;}
                 .count-particles{border-radius: 0 0 3px 3px;}
-                /* ---- particles.js container ---- */
                 #particles-js{
                     width: 100%;
                     height: 100%;
@@ -42,10 +41,11 @@
                     background-position: 50% 50%;
                     background-repeat: no-repeat;
                 }
-        
+        */
         #main_3 ul, #main_2 #ul_wrap {transform-origin: 0 50%; transform: scaleX(0); transition: .5s;}
         
-        #main_1 {background-color: #000;}
+        .main_box {background: url(images/background_flat.jpg);}
+        #main_1 {background: url(images/background.jpg);}
         /*#main_1 {background-color: #87CEFA;}
         #main_1 #ground {background-color: #f4dcb6; width: 100%; height: 27%; position: absolute; bottom: 0; opacity: .9;}
         #main_1 svg#character {position: absolute; bottom: 10%; right: 10%;}
@@ -56,12 +56,12 @@
         #main_1 .ground:nth-child(3) {left: 50%;}
         #main_1 .ground:nth-child(4) {left: 75%;}*/
         
-        #main_1 #text {position: fixed; top: 40%; left: 20%;}
+        #main_1 #text {position: fixed; top: 60%; left: 40%;}
         #main_1 .moving_text {font-size: 3rem; color: #ddd; display: inline-block; margin-right: -2%;}
-        #main_1 .moving_text:nth-child(6),#main_1 .moving_text:nth-child(7),#main_1 .moving_text:nth-child(8) {color: #6400d0}
-        #main_1 .typewrite, #main_1 .typewrite+div {font-size: 2rem; color: #777; display: inline-block;}
+        #main_1 .moving_text:nth-child(6),#main_1 .moving_text:nth-child(7),#main_1 .moving_text:nth-child(8) {color: #640080}
+        #main_1 .typewrite, #main_1 .typewrite+div {font-size: 1.2rem; color: #777; display: inline-block;}
         
-        .main_box >#title {height: 5vh; font-size: 2rem; text-align: center; line-height: 5vh; background-color: #fff; position: relative; z-index: 1; width: 15vw; margin: 2.5vh auto; border-radius: 50%;}
+        .main_box >#title {height: 5vh; font-size: 2rem; text-align: center; line-height: 5vh; background-color: #fff; position: relative; z-index: 1; width: 15vw; margin: 2.5vh auto; border-right: 1px solid #320064; border-left: 1px solid #320064;}
         #main_2 >#title {background-color: #f5f5f5;}
         #main_3 >#title {width: 20vw;}
         #main_4 >#title {margin: 0 auto;}
@@ -223,7 +223,6 @@
             </ul>
         </div>
     </div>
-    <div id="portrait"><img src="images/portrait.png"></div>
     <style>
         #navigation {position: fixed; top: 0; left: 10px; z-index: 10;}
         #navigation #nav_wrap {width: 70px; height: 100px; background-color: rgba(255,255,255,.8); padding: 1vw; border-radius: 0 0 20px 20px; overflow: hidden; transition: 1s;}
@@ -238,13 +237,12 @@
         #navigation li #nav_li_line {width: 10px; height: 2px; background-color: #000; margin-top: -10px; transition: .5s;}
         #navigation li:hover #nav_li_line {width: 135%;}
         
-        #main_1 #introduce {position: absolute; left: 1%; bottom: 1%; background-color: rgba(255,255,255,.7); font-size: 1.2rem; line-height: 2; padding: 1%; border-radius: 10px; height: 110px;}
+        #main_1 #introduce {position: absolute; left: 1%; bottom: 1%; background-color: rgba(255,255,255,.7); font-size: 1.2rem; line-height: 2; padding: 1%; border-radius: 10px; height: 70px;}
         #main_1 #introduce a {border: 1.5px solid #320064; border-radius: 5px; padding: 3px 10px; transition: .5s;}
         #main_1 #introduce a:hover {background-color: #777; color: #fff;}
         
         #window_title {position: absolute; top: 0; left: 0; width: 100%; text-indent: 5px; border-bottom: 1px solid #000; font-size: .7rem; background-color: #789; text-align: left;}
         #window_title::first-letter {color: #320064;}
-        #portrait {position: fixed; right: 0; bottom: 0;}
     </style>
     <script>
         $('#navigation img').click(function() {
@@ -334,18 +332,22 @@
                 }
             </style>
             -->
+            <!--
             <div style="border-radius: 50%; width: 460px; height: 460px; background-image: url(images/giphy.gif); background-size: cover; position: absolute; left: 50%; top: 50%; transform: translateX(-50%) translateY(-50%);"></div>
             
-			<!-- count particles -->
 			<div class="count-particles">
 			  <span class="js-count-particles"></span>
 			</div>
 
-			<!-- particles.js container -->
 			<div id="particles-js">
 			</div>
-            
-            <div id="text">
+            -->
+            <img src="images/namecard.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); box-shadow: 20px 20px 30px rgba(0,0,0,.5);" class="move_window">
+            <div class="title_line" id="title_top"></div>
+            <div class="title_line" id="title_right"></div>
+            <div class="title_line" id="title_bottom"></div>
+            <div class="title_line" id="title_left"></div>
+            <div id="text"><!--
                 <div class="moving_text">웹</div>
                 <div class="moving_text">디</div>
                 <div class="moving_text">자</div>
@@ -353,9 +355,9 @@
                 <div class="moving_text">너&nbsp;</div>
                 <div class="moving_text">서</div>
                 <div class="moving_text">기</div>
-                <div class="moving_text">정</div>
+                <div class="moving_text">정</div>-->
                 <br>
-                <div class="moving_text typewrite" data-period="2000" data-type='[ "여기있어요!", "I am here!" ]'>
+                <div class="moving_text typewrite" data-period="2000" data-type='[ "I just hope my portfolio...", "more cents than the others." ]'>
                     <!--made by vipul mirajkar thevipulm.appspot.com-->
                     <span class="wrap"></span>
                 </div>
@@ -364,14 +366,14 @@
             <div class="move_window" id="introduce">
                 <div id="window_title">■ Information</div>
                 <div>포트폴리오 요약</div>
-                <a href="introduce.jpg" target="_blank">jpg.새창열기</a>
-                <br>
+                <!--<a href="introduce.jpg" target="_blank">jpg.새창열기</a>
+                <br>-->
                 <a href="introduce.pdf" download>pdf.다운로드</a>
             </div>
-            <div class="move_window" style="position: absolute; left: 20%; top: 14%; width: 200px; text-align: center; border: 1px solid #777;">
+            <div class="move_window" style="position: absolute; left: 25%; top: 30%; width: 200px; text-align: center; border: 1px solid #777; padding: 10px; background-color: rgba(255,255,255,.7);">
                 <div id="window_title">■ Joker</div>
                 <img src="images/joker.jpg" width="150px">
-                <div style="color: #ccc; font-size: .9rem;">저를 웹디라고 소개해줄래요?</div>
+                <div style="font-size: .9rem;">저를 웹디라고 소개해줄래요?</div>
             </div>
         </div>
         
@@ -386,11 +388,12 @@
             </div>
             <div class="split">
                 <ul>
-                    <li>전자공학 따윈 버렸어요.</li>
+                    <li>전자공학은 버렸어요.</li>
                     <li>디자인 좋아!<br>코딩 좋아!</li>
                     <li>2015.02. 금오공대 전자공학부-전자IT융합(임베디드) 졸업</li>
                     <li>★ 실물이 나음 </li>
                 </ul>
+                <img src="images/portrait.png">
             </div>
         </div>
         
@@ -415,7 +418,7 @@
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-draw-polygon fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="list_title">일러스트레이터</p>
+                    <p id="list_title">일러스트</p>
                     <p id="list_text">로고제작, 상품디자인, 캐릭터 제작</p>
                 </li>
                 <li>
@@ -424,30 +427,30 @@
                         <i class="fas fa-laptop-code fa-stack-1x fa-inverse"></i>
                     </span>
                     <p id="list_title">홈페이지 제작</p>
-                    <p id="list_text">HTML5, CSS3, java script, jquery를 이용한 홈페이지 제작</p>
+                    <p id="list_text">HTML5, CSS3, Javascript, jQuery 사용</p>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-store fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="list_title">쇼핑몰 관리/편집/상품등록</p>
-                    <p id="list_text">cafe24 관리 및 메인페이지 편집, 상품세부설정 및 상세페이지 제작 가능</p>
+                    <p id="list_title">cafe24 활용</p>
+                    <p id="list_text">쇼핑몰 관리/편집/상품등록</p>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-camera-retro fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="list_title">상품사진 촬영/보정</p>
-                    <p id="list_text">DLSR 사진 촬영 및 사진 보정 가능</p>
+                    <p id="list_title">DLSR 활용</p>
+                    <p id="list_text">상품 촬영 및 보정 가능</p>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-search-dollar fa-stack-1x fa-inverse"></i>
                     </span>
-                    <p id="list_title">쇼핑몰 및 오픈마켓 마케팅</p>
+                    <p id="list_title">마케팅</p>
                     <p id="list_text">아이템발굴, 시장분석, 판매전략 수립 가능</p>
                 </li>
                 <li>
@@ -526,66 +529,66 @@
                 <div class="ul_item" id="item_1">
                     <div class="item_list">
                         <img src="illust/fan.png">
-                        <div>유형: 수업<br>브러쉬 굵기의 강약이 포인트입니다.</div>
+                        <div>유형: 수업<br>선풍기</div>
                     </div>
                     <div class="item_list">
                         <img src="illust/truck.png">
-                        <div>유형: 수업<br>트럭의 물결이 포인트입니다.</div>
+                        <div>유형: 수업<br>트럭</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/phone.png">
-                        <div>유형: 수업<br>광원표현(mesh)이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
+                        <div>유형: 수업<br>3D 아이폰</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/memo.png">
-                        <div>유형: 수업<br>패턴 제작이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
+                        <div>유형: 수업<br>메모지</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/cup.png">
-                        <div>유형: 수업<br>3D 컵이 포인트입니다.<br>취미로 그렸던 라이언을 넣어봤습니다.</div>
+                        <div>유형: 수업<br>3D 컵</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/cosmetic.png">
-                        <div>유형: 수업<br>메이크업 브러쉬가 포인트입니다.</div>
+                        <div>유형: 수업<br>화장품</div>
                     </div>                 
                     <div class="item_list">
                         <img src="illust/bottle.png">
-                        <div>유형: 수업<br>3D revolve와 map art가 포인트입니다.</div>
+                        <div>유형: 수업<br>처음처럼</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/bear.png">
-                        <div>유형: 수업<br>메모지 일러스트에 쓸 곰돌이입니다.</div>
+                        <div>유형: 수업<br>곰돌이</div>
                     </div>                    
                     <!--<div class="item_list">
                         <img src="illust/ryan.png">
                         <div>유형: 취미<br>카카오프렌즈의 '라이언'입니다.</div>-->                    
                     <div class="item_list">
                         <img src="illust/chimaek.png">
-                        <div>유형: 취미<br>2018 대구치맥페스티벌 포스터입니다.<br>패턴 브러시가 포인트입니다.</div>
+                        <div>유형: 취미<br>2018 대구치맥페스티벌 포스터</div>
                     </div>                       
                     <div class="item_list">
                         <img src="illust/bbibbi.png">
-                        <div>유형: 취미<br>아이유 앨범, 삐삐 표지입니다.<br>담벼락의 무늬가 포인트입니다.</div>
+                        <div>유형: 취미<br>아이유 앨범, 삐삐 표지</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/pubg.jpg">
-                        <div>유형: 취미<br>게임, '배틀그라운드'입니다.</div>
+                        <div>유형: 취미<br>게임, '배틀그라운드'</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/harley.png">
-                        <div>유형: 취미<br>영화, '수어사이드 스쿼드'의 할리퀸입니다.</div>
+                        <div>유형: 취미<br>영화, '수어사이드 스쿼드'의 할리퀸</div>
                     </div>                    
                     <div class="item_list">
                         <img src="illust/iron.png">
-                        <div>유형: 취미<br>영화, '아이언맨'입니다.<br>금속의 질감표현이 포인트입니다.</div>
+                        <div>유형: 취미<br>영화, '아이언맨'</div>
                     </div>                      
                     <div class="item_list">
                         <img src="illust/ryan_chicken.png">
-                        <div>유형: 취미<br>UI/UX 수업시간에 활용한, 치킨을 든 라이언입니다.</div>
+                        <div>유형: 취미<br>치킨쪼아! 라이언</div>
                     </div>                      
                     <div class="item_list">
                         <img src="illust/davy.png">
-                        <div>유형: 취미<br>영화, '캐리비안의 해적'의 데비존스입니다.<br>일러스트 및 포토샵 혼합입니다.</div>
+                        <div>유형: 취미<br>영화, '캐리비안의 해적'의 데비존스</div>
                     </div>
                     <div id="item_list_detail">
                         <img src="illust/fan_ing.jpg">
@@ -1308,13 +1311,12 @@
     </script>
     
         
-        <!-- moving atom scripts -->
+        <!-- moving atom scripts --><!--
 			<meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
  			<meta name="author" content="Vincent Garreau" />
 			<script src="moving_atom_js/particles.js"></script>
 			<script src="moving_atom_js/app.js"></script>
 
-			<!-- stats.js -->
 			<script src="moving_atom_js/stats.js"></script>
 			<script>
 				  var count_particles, stats, update;
@@ -1335,5 +1337,5 @@
 					requestAnimationFrame(update);
 				  };
 				  requestAnimationFrame(update);
-			</script>
+			</script>-->
 </html>
