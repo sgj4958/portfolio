@@ -6,9 +6,13 @@
     <title>서기정's portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="common.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    
+    <!-- 메인컬러 : #8b32a2 -->
     
     <style>
         /*
@@ -42,7 +46,7 @@
                     background-repeat: no-repeat;
                 }
         */
-        #main_3 ul, #main_2 #ul_wrap {transform-origin: 0 50%; transform: scaleX(0); transition: .5s;}
+        #main_5 ol, #main_2 #ul_wrap {transform-origin: 0 50%; transform: scaleX(0); transition: .5s;}
         
         .main_box {background: url(images/background_flat.jpg);}
         #main_1 {background: url(images/background.jpg);}
@@ -58,14 +62,11 @@
         
         #main_1 #text {position: fixed; top: 60%; left: 40%;}
         #main_1 .moving_text {font-size: 3rem; color: #ddd; display: inline-block; margin-right: -2%;}
-        #main_1 .moving_text:nth-child(6),#main_1 .moving_text:nth-child(7),#main_1 .moving_text:nth-child(8) {color: #640080}
+        #main_1 .moving_text:nth-child(6),#main_1 .moving_text:nth-child(7),#main_1 .moving_text:nth-child(8) {color: #320064}
         #main_1 .typewrite, #main_1 .typewrite+div {font-size: 1.2rem; color: #777; display: inline-block;}
         
-        .main_box >#title {height: 5vh; font-size: 2rem; text-align: center; line-height: 5vh; background-color: #fff; position: relative; z-index: 1; width: 15vw; margin: 2.5vh auto; border-right: 1px solid #320064; border-left: 1px solid #320064;}
-        #main_2 >#title {background-color: #f5f5f5;}
-        #main_3 >#title {width: 20vw;}
-        #main_4 >#title {margin: 0 auto;}
-        .main_box .title_line {position: absolute; width: 2px; height: 2px; background-color: #640080;}
+        .main_box >#title {height: 5vh; font-size: 1.6rem; text-align: center; line-height: 5vh; background-color: #320064; position: relative; z-index: 1; width: 15vw; margin: 2.5vh auto; border-right: 2px solid #fff; border-left: 2px solid #fff; color: #fff;}
+        .main_box .title_line {position: absolute; width: 2px; height: 2px; background-color: #320064;}
         .main_box #title_top {width: 90%; top: 5%; left: 5%;}
         .main_box #title_bottom {width: 90%; bottom: 5%; left: 5%;}
         .main_box #title_left {height: 90%; top: 5%; left: 5%;}
@@ -83,12 +84,13 @@
         #main_2 #ul_wrap li:hover span {transform: translateX(0);}
         #main_2 #ul_wrap li:hover >div {transform: translateX(-100%);}
         
-        #main_2 #ul_wrap .ul_text {position: relative;} 
-        #main_2 #ul_wrap #text_line {position: absolute; width: 1.5vw; height: 2px; background-color: #000; bottom: 0; left: 0; transition: .7s;}
+        #main_2 #ul_wrap .ul_text {position: relative; font-size: 1.4rem; line-height: 5;}
+        #main_2 #ul_wrap .ul_text:after {content: ''; background-image: url(images/icon_more.png); width: 20px; height: 20px; background-size: cover; position: absolute; top: 40%; right: -30px;}
+        #main_2 #ul_wrap #text_line {position: absolute; width: 1vw; height: 2px; background-color: #000; top: 15%; left: 0; transition: .7s;}
         #main_2 #ul_wrap li:hover #text_line {width: 100%;}
         #main_2 .ul_item {position: absolute; top: 8%; left: 6%; bottom: 8%; right: 6%; background-color: #fff; visibility: hidden; opacity: 0; transition: 1s; overflow: hidden;}
-        #main_2 #ul_line {position: absolute; top: -15%; right: -5px; width: 5px; height: 110vh; background-color: #000;}
-        #main_2 #ul_triangle {position: absolute; right: -75px; top: 45%; width: 0; height: 0; border: 50px solid #000; border-left-color: transparent; border-bottom-color: transparent; transform: rotate(45deg); transform-origin: 100% 0; cursor: pointer;}
+        #main_2 #ul_line {position: absolute; top: -15%; right: -5px; width: 5px; height: 110vh; background-color: #320064;}
+        #main_2 #ul_triangle {position: absolute; right: -75px; top: 45%; width: 0; height: 0; border: 50px solid #320064; border-left-color: transparent; border-bottom-color: transparent; transform: rotate(45deg); transform-origin: 100% 0; cursor: pointer;}
         
         #main_2 .item_list {width: 20%; height: 33.33%; box-sizing: border-box; border: 1px solid #ccc; text-align: center; float: left; position: relative; cursor: pointer; left: 0; top: 0;}
         #main_2 .item_list .split {width: 50%; height: 100%;}
@@ -113,33 +115,33 @@
         #main_2 #item_6 a#mypart {left: 8%;}
         #main_2 #item_6 a:hover {background-color: #ccc;}
        
-        i:first-child {color: #320064; width: 80%; left: 10%;}
-        i {transition: 1s;}
-        li:hover i:first-child {border: 1px solid #320064; color: transparent; border-radius: 50%;}
-        li:hover i:last-child {color: #320064;}
+        i:first-child {color: #320064; width: 80%; left: 10%; display: none;}
+        /*li:hover i:first-child {border: 1px solid #320064; color: transparent; border-radius: 50%;}*/
+        i {transition: 1s; font-size: 2rem;}
+        i:last-child {color: #320064;}
+        li:hover i:last-child {color: #fff;}
          
-        #main_3 {background-color: rgba(255,255,255,.8);}
-        #main_3 ul {width: 100%; height: 90%; padding: 0 5%; box-sizing: border-box;}
-        #main_3 li {width: 33.33%; margin: 2% 0; text-align: center; float: left;}
-        #main_3 li #list_title {font-size: 1.6rem;}
-        #main_3 li #list_text {font-size: 1.1rem; color: #777;}
+        #main_5 ol {width: 100%; height: 90%; padding: 0 5%; box-sizing: border-box;}
+        #main_5 ol li {width: 100%; margin: 2% 0; text-align: left; height: 11%;}
+        #main_5 ol li #list_title {font-size: 1.2rem;}
+        #main_5 ol li #list_text {font-size: .9rem; color: #777;}
+        #main_5 ol li span+div {display: inline-block; vertical-align: middle;}
         
         #main_4 {height: 35vh;}
+        #main_4 #title {margin: 0 auto;}
         #main_4 .split {position: absolute; width: 30%; height: 100%; padding: 2% 5%; left: 20%; top: 0;}
         #main_4 .split+.split {left: 38.5%;}
         
-        #main_4 #mail_wrap {width: 200px; height: 200px; position: relative; background-color: #320064; margin: 3vh auto; border-radius: 10%;}
+        #main_4 #mail_wrap {width: 150px; height: 150px; position: relative; margin: 3vh auto; border-radius: 10%; border: 1px solid #fff;}
         #main_4 #mail_wrap:hover #mail_head {transform: rotateX(180deg); z-index: 1; transition: .5s;}
         #main_4 #mail_wrap:hover #mail_inner {transform: translateY(-40%); transition: .5s .3s;}
-        #main_4 #mail_wrap #mail_body {width: 0; height: 0; position: absolute; left: 0; top: 0; bottom: 0; right: 0; margin: auto; border-bottom: 35px solid #fff; border-left: 50px solid #fff; border-right: 50px solid #fff; border-top: 35px solid transparent; border-radius: 10px; z-index: 2;}
-        #main_4 #mail_wrap #mail_head {width: 0; height: 3px; position: absolute; left: 0; top: 0; bottom: 0; right: 0; margin: auto; border-top: 35px solid #fff; border-bottom: 35px solid transparent; border-left: 50px solid transparent; border-right: 50px solid transparent; z-index: 3; border-radius: 10px; transform-origin: top;}
+        #main_4 #mail_wrap #mail_body {width: 0; height: 0; position: absolute; left: 0; top: 0; bottom: 0; right: 0; margin: auto; border-bottom: 35px solid #320064; border-left: 50px solid #320064; border-right: 50px solid #320064; border-top: 35px solid transparent; border-radius: 10px; z-index: 2;}
+        #main_4 #mail_wrap #mail_head {width: 0; height: 3px; position: absolute; left: 0; top: 0; bottom: 0; right: 0; margin: auto; border-top: 35px solid #320064; border-bottom: 35px solid transparent; border-left: 50px solid transparent; border-right: 50px solid transparent; z-index: 3; border-radius: 10px; transform-origin: top;}
         #main_4 #mail_wrap #mail_inner {width: 50px; height: 60px; position: absolute; left: 0; top: 0; bottom: 0; right: 0; margin: auto; border-radius: 5px; z-index: 1; background-color: #fff; border: 1px solid #000;}
         #main_4 #mail_wrap #mail_inner .inner_line {width: 70%; height: 1px; background-color: #000; margin-left: 15%; margin-top: 20%;}
-        #main_4 #mail_wrap #mail_text {color: #fff; text-align: center; font-size: 1.2rem; padding-top: 80%;}
         
-        #main_4 #call_wrap {width: 200px; height: 200px; background-color: #320064; margin: 3vh auto; border-radius: 10%; text-align: center; cursor: pointer;}
-        #main_4 #call_wrap img {width: 150px; height: 150px; margin-top: 10px;}
-        #main_4 #call_wrap #call_text {color: #fff; text-align: center; font-size: 1.2rem; margin-top: -10px;}
+        #main_4 #call_wrap {width: 150px; height: 150px; margin: 3vh auto; border-radius: 10%; text-align: center; cursor: pointer; border: 1px solid #fff;}
+        #main_4 #call_wrap img {width: 150px; height: 150px;}
         #main_4 #call_wrap:hover img {animation: seesaw 1s 1}
         @keyframes seesaw {
             20%,60% {transform: rotate(-5deg)}
@@ -154,14 +156,14 @@
         */
         
         #main_5 {background-color: rgba(255,255,255,0.9);}
-        #main_5 .split {position: absolute; top: 0; left: 0; width: 50%; height: 100%; padding: 15% 0; text-align: center;}
+        #main_5 .split {position: absolute; top: 0; left: 0; width: 50%; height: 100%; padding: 5% 0; text-align: center;}
         #main_5 .split+.split {left: 50%;}
-        #main_5 img {width: 30%; border-radius: 5%;}
+        #main_5 img {width: 30%; border-radius: 0%;}
         #main_5 ul {transform-origin: 0 50%; transform: scaleX(0); transition: .5s;}
-        #main_5 li {text-align: left; font-size: 1.5rem; margin-bottom: 3vh; color: #555;}
-        #main_5 li:first-child {font-size: 2rem; color: #aaa; line-height: 1; font-family: cursive;}
-        #main_5 li::first-letter {color: #320064;}
-        #main_5 li:nth-child(4)::first-letter {color: gold;}
+        #main_5 ul li {text-align: left; font-size: 1rem; margin-bottom: 3vh; color: #555;}
+        #main_5 ul li:first-child {font-size: 1.2rem; color: #aaa; line-height: 1; font-family: cursive;}
+        #main_5 ul li::first-letter {color: #320064;}
+        #main_5 .move_window {padding: 10px; padding-top: 30px; width: 25%; line-height: 1.5;}
         /*
         #main_5 li:before {position: absolute; content: ''; width: 3px; height: 10px; background-color: #320064; margin: 1.1% 0 0 -1%; border-radius: 50%;}
         #main_5 li:after {content: ''; width: 30px; height: 30px; background-size: contain; position: absolute; background-repeat: no-repeat; opacity: .15;}
@@ -172,34 +174,28 @@
         
         /* 반응형 설정 시작 */
         @media only screen and (max-width: 1281px) {
-            #main_2 #title {width: 20vw;}
-            #main_3 #title {width: 40vw;}
-            #main_4 #title {width: 20vw;}
+            .main_box >#title {width: 30vw;}
         }
         @media only screen and (max-width: 769px) {
-            #main_3 li {width: 50%;}
+            #main_5 ol li {width: 50%;}
             #main_4 #call_wrap {width: 100px; height: 100px;}
             #main_4 #call_wrap img {width: 75px; height: 75px;}
             #main_4 #mail_wrap {width: 100px; height: 100px;}
             #main_4 #mail_wrap #mail_body {border-bottom: 17px solid #fff; border-left: 25px solid #fff; border-right: 25px solid #fff; border-top: 17px solid transparent;}
             #main_4 #mail_wrap #mail_head {border-top: 17px solid #fff; border-bottom: 17px solid transparent; border-left: 25px solid transparent; border-right: 25px solid transparent;}
             #main_4 #mail_wrap #mail_inner {width: 25px; height: 30px;}
-            #main_2 #title {width: 30vw;}
-            #main_3 #title {width: 50vw;}
-            #main_4 #title {width: 35vw;}
+            .main_box >#title {width: 40vw;}
         }
         @media only screen and (max-width: 541px) {
-            #main_3 li {width: 45%; height: 22%; font-size: .5rem;}
+            #main_5 ol li {width: 45%; height: 22%; font-size: .5rem;}
             #main_2 li {font-size: 1.2rem;}
             #main_2 li span i:nth-child(1) {font-size: 4rem; width: 50%; left: 23%;}
             #main_2 li span i:nth-child(2) {font-size: 2rem; line-height: 3.8rem;}
-            #main_2 #title {width: 40vw;}
             #main_2 #sub_title {margin-left: -10vw;}
             #main_2 .ul_item {overflow-y: scroll;}
             #main_2 .item_list {width: 50%;}
             #main_2 #item_4 .item_list {width: 100%;}
-            #main_3 #title {width: 70vw;}
-            #main_4 #title {width: 50vw;}
+            .main_box >#title {width: 50vw;}
         }
         /* 반응형 설정 끝 */
     </style>
@@ -216,16 +212,15 @@
                 <div class="nav_toggle_line"></div>
             </div>
             <ul>
-                <li>I AM<div id="nav_li_line"></div></li>
-                <li>SKILL<div id="nav_li_line"></div></li>
+                <li>ME<div id="nav_li_line"></div></li>
                 <li>WORK<div id="nav_li_line"></div></li>
-                <li>CONTACT<div id="nav_li_line"></div></li>
+                <li>CALL<div id="nav_li_line"></div></li>
             </ul>
         </div>
     </div>
     <style>
         #navigation {position: fixed; top: 0; left: 10px; z-index: 10;}
-        #navigation #nav_wrap {width: 70px; height: 100px; background-color: rgba(255,255,255,.8); padding: 1vw; border-radius: 0 0 20px 20px; overflow: hidden; transition: 1s;}
+        #navigation #nav_wrap {width: 70px; height: 100px; padding: 1vw; overflow: hidden; transition: 1s;}
         #navigation img {width: 70px; height: 70px; cursor: pointer;}
         #navigation #nav_toggle {width: 30px; height: 30px; margin: 0 auto; position: relative; overflow: hidden; cursor: grab;}
         #navigation #nav_toggle .nav_toggle_line {width: 80%; height: 2px; background-color: #000; position: absolute; left: 10%; transition: .5s; transform-origin: 0 50%;}
@@ -237,12 +232,13 @@
         #navigation li #nav_li_line {width: 10px; height: 2px; background-color: #000; margin-top: -10px; transition: .5s;}
         #navigation li:hover #nav_li_line {width: 135%;}
         
-        #main_1 #introduce {position: absolute; left: 1%; bottom: 1%; background-color: rgba(255,255,255,.7); font-size: 1.2rem; line-height: 2; padding: 1%; border-radius: 10px; height: 70px;}
+        #main_1 #introduce {position: absolute; left: 1%; bottom: 1%; font-size: 1.2rem; line-height: 2; padding: 1%; height: 70px;}
         #main_1 #introduce a {border: 1.5px solid #320064; border-radius: 5px; padding: 3px 10px; transition: .5s;}
         #main_1 #introduce a:hover {background-color: #777; color: #fff;}
         
         #window_title {position: absolute; top: 0; left: 0; width: 100%; text-indent: 5px; border-bottom: 1px solid #000; font-size: .7rem; background-color: #789; text-align: left;}
         #window_title::first-letter {color: #320064;}
+        .move_window {background-color: #fff; border: 1px solid #777; border-radius: 0 0 20px 20px; position: absolute;}
     </style>
     <script>
         $('#navigation img').click(function() {
@@ -252,12 +248,9 @@
             $("html,body").stop().animate({scrollTop: $('#main_5').offset().top}, 800);
         });
         $('#navigation li:nth-child(2)').click(function() {
-            $("html,body").stop().animate({scrollTop: $('#main_3').offset().top}, 800);
-        });
-        $('#navigation li:nth-child(3)').click(function() {
             $("html,body").stop().animate({scrollTop: $('#main_2').offset().top}, 800);
         });
-        $('#navigation li:nth-child(4)').click(function() {
+        $('#navigation li:nth-child(3)').click(function() {
             $("html,body").stop().animate({scrollTop: $('#main_4').offset().top}, 800);
         });
         var nav_toggle = 0;
@@ -268,7 +261,7 @@
                 $('#navigation #nav_toggle .nav_toggle_line:nth-child(3)').css({'transform':'rotate(-45deg)'});
                 nav_toggle = 1;
                 
-                $('#navigation #nav_wrap').css({'height':'300px'});
+                $('#navigation #nav_wrap').css({'height':'250px'});
                 $('#navigation li').css({'transform':'scaleY(1)'});
             } else {
                 $('#navigation #nav_toggle .nav_toggle_line').css({
@@ -342,7 +335,7 @@
 			<div id="particles-js">
 			</div>
             -->
-            <img src="images/namecard.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); box-shadow: 20px 20px 30px rgba(0,0,0,.5);" class="move_window">
+            <img src="images/namecard.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); box-shadow: 20px 20px 30px rgba(0,0,0,.5); z-index: 1;" class="move_window">
             <div class="title_line" id="title_top"></div>
             <div class="title_line" id="title_right"></div>
             <div class="title_line" id="title_bottom"></div>
@@ -363,14 +356,14 @@
                 </div>
                 <div>_</div>
             </div> 
-            <div class="move_window" id="introduce">
+            <div class="move_window" id="introduce" style="display: none">
                 <div id="window_title">■ Information</div>
                 <div>포트폴리오 요약</div>
                 <!--<a href="introduce.jpg" target="_blank">jpg.새창열기</a>
                 <br>-->
                 <a href="introduce.pdf" download>pdf.다운로드</a>
             </div>
-            <div class="move_window" style="position: absolute; left: 25%; top: 30%; width: 200px; text-align: center; border: 1px solid #777; padding: 10px; background-color: rgba(255,255,255,.7);">
+            <div class="move_window" style="position: absolute; left: 35%; top: 50%; width: 200px; text-align: center; padding: 10px;">
                 <div id="window_title">■ Joker</div>
                 <img src="images/joker.jpg" width="150px">
                 <div style="font-size: .9rem;">저를 웹디라고 소개해줄래요?</div>
@@ -378,94 +371,104 @@
         </div>
         
         <div class="main_box" id="main_5">
-            <div id="title">I AM</div>
-            <div class="title_line" id="title_top"></div>
-            <div class="title_line" id="title_right"></div>
-            <div class="title_line" id="title_bottom"></div>
-            <div class="title_line" id="title_left"></div>
-            <div class="split">
-                <img src="images/profile.jpg">
-            </div>
-            <div class="split">
-                <ul>
-                    <li>전자공학은 버렸어요.</li>
-                    <li>디자인 좋아!<br>코딩 좋아!</li>
-                    <li>2015.02. 금오공대 전자공학부-전자IT융합(임베디드) 졸업</li>
-                    <li>★ 실물이 나음 </li>
-                </ul>
-                <img src="images/portrait.png">
-            </div>
-        </div>
-        
-        <div class="main_box" id="main_3">
-            <div id="title">SKILL</div>
+            <div id="title">이게 저에요!</div>
             <div class="title_line" id="title_top"></div>
             <div class="title_line" id="title_right"></div>
             <div class="title_line" id="title_bottom"></div>
             <div class="title_line" id="title_left"></div>
             <div id="background"></div>
-            <ul>
+            <div class="split">
+                <img src="images/profile.png" style="margin-top: 20%;">
+            </div>
+            <div class="split">
+            <ol>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="far fa-images fa-stack-1x fa-inverse"></i>
                     </span>
+                    <div>
                     <p id="list_title">포토샵</p>
-                    <p id="list_text">이미지 편집, 보정, 합성, 상세페이지 제작</p>
+                    <p id="list_text">이미지 편집, 보정, 합성, 상세페이지 제작</p></div>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-draw-polygon fa-stack-1x fa-inverse"></i>
                     </span>
+                    <div>
                     <p id="list_title">일러스트</p>
-                    <p id="list_text">로고제작, 상품디자인, 캐릭터 제작</p>
+                    <p id="list_text">로고제작, 상품디자인, 캐릭터 제작</p></div>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-laptop-code fa-stack-1x fa-inverse"></i>
                     </span>
+                    <div>
                     <p id="list_title">홈페이지 제작</p>
-                    <p id="list_text">HTML5, CSS3, Javascript, jQuery 사용</p>
+                    <p id="list_text">HTML5, CSS3, Javascript, jQuery 사용</p></div>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-store fa-stack-1x fa-inverse"></i>
                     </span>
+                    <div>
                     <p id="list_title">cafe24 활용</p>
-                    <p id="list_text">쇼핑몰 관리/편집/상품등록</p>
+                    <p id="list_text">쇼핑몰 관리/편집/상품등록</p></div>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-camera-retro fa-stack-1x fa-inverse"></i>
                     </span>
+                    <div>
                     <p id="list_title">DLSR 활용</p>
-                    <p id="list_text">상품 촬영 및 보정 가능</p>
+                    <p id="list_text">상품 촬영 및 보정 가능</p></div>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-search-dollar fa-stack-1x fa-inverse"></i>
                     </span>
+                    <div>
                     <p id="list_title">마케팅</p>
-                    <p id="list_text">아이템발굴, 시장분석, 판매전략 수립 가능</p>
+                    <p id="list_text">아이템발굴, 시장분석, 판매전략 수립 가능</p></div>
                 </li>
                 <li>
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fas fa-mobile-alt fa-stack-1x fa-inverse"></i>
                     </span>
+                    <div>
                     <p id="list_title">UI/UX</p>
-                    <p id="list_text">앱디자인 가능</p>
+                    <p id="list_text">앱디자인 가능</p></div>
                 </li>
-            </ul>
+            </ol>
+            </div>
+            <div class="move_window" style="left: 23%; top: 10%; width: auto;">
+                <div id="window_title">■ Drug</div>
+                <img src="images/drug.jpg" style="width: 400px;">
+            </div>
+            <div class="move_window" style="left: 33%; top: 10%;">
+                <div id="window_title">■ Goodbye</div>
+                <ul>
+                    <li>전자공학은 버렸어요. (진지함)</li>
+                    <li>대학은 금오공대를 졸업했어요. 전자공학부 전자IT융합학과였는데, 그냥 임베디드라고 봐주시면 될 것 같아요. 저는 어릴 때부터 여성스러웠어요. 실사주의의 서양화를 그리는 것을 좋아했고, 또 색종이로 귀걸이를 만들거나, 종이띠로 된 이름표를 만들어서 연필에 붙이고 다니기도 했어요. 책도 심리테스트 이런 것들을 좋아했고요. 이런 걸 무의식적으로 피하기 시작한 건, 중학교 때 여자친구들이 이를 지적했을 때부터에요. 그러다 보니 미대 진학을 무의식적으로 꺼렸고, 결국 성적에 맞춰 전자공학을 선택했어요. 어처구니없지만 수능 때 수리는 나형 3등급, 물리는 안봤어요. 이런 제가 공대라니. 그래서 고생했죠. 1학년 때 전공과목 수업을 전혀 이해 못해서 C 받은 기억이 있네요. 그래도 프로그래밍엔 자신있어서 나름 학점방어에는 성공했어요. 하지만 졸업하고 나니 또 고생했어요. 전자는 영 못하겠고, 취업은 안되고, 그렇다고 공무원 공부하는 건 너무 싫어서, 이 회사 저 회사 기웃거렸어요. 발전소도 다녀보고, 전자부품 기술영업도 하고. 그땐 그래도 전자공학을 포기하면 안되는 줄 알았는데, 막상 30살이 되니 뭔가 해탈한 기분이 들면서 내려놓게 되더라고요. 그래서 짜잔, 디자이너가 되기로 결심하였습니다! 그렇게 웹디자인 학원을 다니면서, 본격적으로 포토샵과 일러스트도 익혔어요. 사실 웹디가 아니라 진짜 디자인 학원을 다니고 싶었는데, 포트폴리오가 없으니 안받아주더라구요. 아무튼 이렇게 디자이너로서 한발짝 나아갔네요.</li>
+                </ul>
+            </div>
+            <div class="move_window" style="left: 60%; top: 10%;">
+                <div id="window_title">■ Dream</div>
+                <ul>
+                    <li>꿈은 시각디자이너에요. (진지함)</li>
+                    <li>초등학교 때부터 독학으로 만화를 그리면서 디자인도 겸사겸사 공부하긴 했지만, 본격적으로 디자인을 공부한 건 웹디 학원을 다녔을 때가 처음이에요. 그렇지만 저는 이 학원에서 디자인을 배웠다곤 생각하지 않아요. 그저 툴을 익힌 것 뿐이죠. 디자인 실력은 어디 내놓을 수준은 아닌 것 같아요. 그래서 학원을 수료한 지금도 유튜브를 통해 디자인을 독학하고 있어요. 사실 학원을 막 수료했을 땐 웹디든 퍼블리셔든 뭐든 취업되는대로 해야겠다고 생각하기도 했지만, 지금은 달라요. 그랬다간 20대의 저를 답습할 것 같아서, 코딩은 제가 잘했던 것, 디자인은 제가 좋아하는 것이라고 못박아두고, 디자이너로서의 길만 걷자고 다짐하고 있어요. 보통 대기업 자소서에 잘 나오는 단골멘트가 있죠? 5년 후의 꿈이라던가 목표. 저는 그저 제가 좋아하는 디자인을 그때도 하고 있고, 그때도 즐기고 있다면, 그걸로 만족해요. 아, 목표라면 한가지, 디자인 학위를 취득하고 싶어요. 그럼 진짜 디자이너가 되겠죠?</li>
+                </ul>
+            </div>
         </div>
         
         <div class="main_box" id="main_2">
-            <div id="title">WORK
+            <div id="title">작품전시회
                 <div id="sub_title"></div>
             </div>
             <div class="title_line" id="title_top"></div>
@@ -618,10 +621,10 @@
                         <img src="photo_wb/wb2_2.jpg">
                         <div></div>
                     </div>                    
-                    <div class="item_list">
+                    <!--<div class="item_list">
                         <img src="photo_wb/wb3_2.jpg">
                         <div></div>
-                    </div>                    
+                    </div>-->
                     <div class="item_list">
                         <img src="photo_wb/wb4_2.jpg">
                         <div></div>
@@ -650,10 +653,10 @@
                         <img src="photo_wb/wb10_2.jpg">
                         <div></div>
                     </div>                    
-                    <div class="item_list">
+                    <!--<div class="item_list">
                         <img src="photo_wb/wb11_2.jpg">
                         <div></div>
-                    </div>            
+                    </div>-->            
                     <div class="item_list">
                         <img src="photo_wb/wb12_2.jpg">
                         <div></div>
@@ -662,7 +665,7 @@
                         <div class="split">
                             <img src="photo_wb/wb1_1.jpg">
                             <img src="photo_wb/wb2_1.jpg">
-                            <img src="photo_wb/wb3_1.jpg">
+                            <!--<img src="photo_wb/wb3_1.jpg">-->
                             <img src="photo_wb/wb4_1.jpg">
                             <img src="photo_wb/wb5_1.jpg">
                             <img src="photo_wb/wb6_1.jpg">
@@ -670,13 +673,13 @@
                             <img src="photo_wb/wb8_1.jpg">
                             <img src="photo_wb/wb9_1.jpg">
                             <img src="photo_wb/wb10_1.jpg">
-                            <img src="photo_wb/wb11_1.jpg">
+                            <!--<img src="photo_wb/wb11_1.jpg">-->
                             <img src="photo_wb/wb12_1.jpg">
                         </div>
                         <div class="split">
                             <img src="photo_wb/wb1_2.jpg">
                             <img src="photo_wb/wb2_2.jpg">
-                            <img src="photo_wb/wb3_2.jpg">
+                            <!--<img src="photo_wb/wb3_2.jpg">-->
                             <img src="photo_wb/wb4_2.jpg">
                             <img src="photo_wb/wb5_2.jpg">
                             <img src="photo_wb/wb6_2.jpg">
@@ -684,7 +687,7 @@
                             <img src="photo_wb/wb8_2.jpg">
                             <img src="photo_wb/wb9_2.jpg">
                             <img src="photo_wb/wb10_2.jpg">
-                            <img src="photo_wb/wb11_2.jpg">
+                            <!--<img src="photo_wb/wb11_2.jpg">-->
                             <img src="photo_wb/wb12_2.jpg">
                         </div>
                     </div>
@@ -793,7 +796,7 @@
         </div>
         
         <div class="main_box" id="main_4">
-            <div id="title">CONTACT</div>
+            <div id="title">편하게 연락주세요</div>
             <div class="title_line" id="title_top"></div>
             <div class="title_line" id="title_right"></div>
             <div class="title_line" id="title_bottom"></div>
@@ -809,7 +812,6 @@
                             <div class="inner_line"></div>
                             <div class="inner_line"></div>
                         </div>
-                        <div id="mail_text">메일쓰기</div>
                     </a>
                 </div>
                 <div style="text-align: center; margin-top: -1.5vh; font-size: 1.4rem;">sgj4958@naver.com</div>
@@ -818,7 +820,6 @@
                 <div id="call_wrap">
                     <a href="tel:010-8837-2673">
                         <img src="images/call.png">
-                        <div id="call_text">전화하기</div>
                     </a>
                 </div>
                 <div style="text-align: center; margin-top: -1.5vh; font-size: 1.4rem;">010 8837 2673</div>
@@ -1218,9 +1219,9 @@
             }
         }
         
-        $('#main_3 li').hover(
+        $('#main_5 li').hover(
             function() {
-                $('#main_3 #background').css({
+                $('#main_5 #background').css({
                     'opacity':'0.3',
                     'position':'absolute',
                     'top':'5.5%',
@@ -1235,33 +1236,33 @@
                 });
                 switch($(this).index()) {
                     case 0:
-                        $('#main_3 #background').css('background-image','url("intro/detail.jpg")');
+                        $('#main_5 #background').css('background-image','url("intro/detail.jpg")');
                         break;
                     case 1:
-                        $('#main_3 #background').css('background-image','url("intro/illust.jpg")');
+                        $('#main_5 #background').css('background-image','url("intro/illust.jpg")');
                         break;
                     case 2:
-                        $('#main_3 #background').css('background-image','url("intro/web.jpg")');
+                        $('#main_5 #background').css('background-image','url("intro/web.jpg")');
                         break;
                     case 3:
-                        $('#main_3 #background').css('background-image','url("intro/shop.jpg")');
+                        $('#main_5 #background').css('background-image','url("intro/shop.png")');
                         break;
                     case 4:
-                        $('#main_3 #background').css('background-image','url("intro/photo.jpg")');
+                        $('#main_5 #background').css('background-image','url("intro/photo.jpg")');
                         break;
                     case 5:
-                        $('#main_3 #background').css({
+                        $('#main_5 #background').css({
                             'background-image':'url("shop/shop_plan.jpg")',
                             'background-size':'cover',
                             'background-position':'top'
                         });
                         break;
                     case 6:
-                        $('#main_3 #background').css('background-image','url("intro/uiux.jpg")');
+                        $('#main_5 #background').css('background-image','url("intro/uiux.png")');
                         break;
                 }
             },
-            function() {$('#main_3 #background').css({'background-image':'','opacity':0});}
+            function() {$('#main_5 #background').css({'background-image':'','opacity':0});}
         );
         
         window.addEventListener('scroll', function() {
@@ -1298,8 +1299,8 @@
              if(pageYOffset == $('#main_5').offset().top) {
                  $('#main_5 ul').css({'transform':'scaleX(1)'});
              }
-             if(pageYOffset == $('#main_3').offset().top) {
-                 $('#main_3 ul').css({'transform':'scaleX(1)'});
+             if(pageYOffset == $('#main_5').offset().top) {
+                 $('#main_5 ol').css({'transform':'scaleX(1)'});
              }
              if(pageYOffset == $('#main_2').offset().top) {
                  $('#main_2 #ul_wrap').css({'transform':'scaleX(1)'});
